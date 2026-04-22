@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c7ef00",
+                        "surface-container-low": "#131313",
+                        "surface-container-lowest": "#000000",
+                        "inverse-surface": "#fcf8f8",
+                        "on-primary-container": "#001e59",
+                        "on-tertiary-fixed-variant": "#576a00",
+                        "on-primary-fixed-variant": "#00266d",
+                        "primary-dim": "#336ced",
+                        "on-secondary": "#005a19",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed": "#004411",
+                        "on-tertiary-container": "#4c5d00",
+                        "surface-container-highest": "#262626",
+                        "on-surface": "#ffffff",
+                        "background": "#0e0e0e",
+                        "outline-variant": "#494847",
+                        "on-primary-fixed": "#000000",
+                        "on-error-container": "#ffa8a3",
+                        "error": "#ff716c",
+                        "on-background": "#ffffff",
+                        "tertiary-container": "#d1fc00",
+                        "on-tertiary": "#546600",
+                        "surface-tint": "#8fabff",
+                        "on-error": "#490006",
+                        "secondary-container": "#006e20",
+                        "secondary-fixed-dim": "#1beb52",
+                        "on-surface-variant": "#adaaaa",
+                        "on-primary": "#002972",
+                        "inverse-primary": "#0955d7",
+                        "secondary-fixed": "#38fa5f",
+                        "error-container": "#9f0519",
+                        "primary-fixed-dim": "#648eff",
+                        "surface-variant": "#262626",
+                        "tertiary": "#f4ffc6",
+                        "primary-container": "#7a9dff",
+                        "primary": "#8fabff",
+                        "surface-container-high": "#201f1f",
+                        "on-secondary-fixed-variant": "#00641d",
+                        "tertiary-dim": "#c7ef00",
+                        "on-tertiary-fixed": "#3e4c00",
+                        "surface-container": "#1a1919",
+                        "tertiary-fixed": "#d4ff00",
+                        "inverse-on-surface": "#565554",
+                        "primary-fixed": "#7a9dff",
+                        "on-secondary-container": "#e5ffde",
+                        "surface-bright": "#2c2c2c",
+                        "surface": "#0e0e0e",
+                        "secondary-dim": "#1beb52",
+                        "secondary": "#38fa5f",
+                        "error-dim": "#d7383b",
+                        "outline": "#777575"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pixel-border {
+            box-shadow: 2px 0 0 0 #000, -2px 0 0 0 #000, 0 2px 0 0 #000, 0 -2px 0 0 #000;
+        }
+        .pixel-chart-container {
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0.05) 2px),
+                              repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0.05) 2px);
+            background-size: 8px 8px;
+        }
+        .pixel-line {
+            filter: url(#pixelate);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SVG Pixel Filter -->
+<svg class="absolute" height="0" width="0">
+<filter id="pixelate" x="0" y="0">
+<feflood height="1" width="1" x="2" y="2"></feflood>
+<fecomposite height="4" width="4"></fecomposite>
+<fetile result="a"></fetile>
+<fecomposite in="SourceGraphic" in2="a" operator="in"></fecomposite>
+<femorphology operator="dilate" radius="1.5"></femorphology>
+</filter>
+</svg>
+<!-- TopAppBar -->
+<nav class="bg-zinc-950/70 backdrop-blur-md sticky top-0 z-[60] flex justify-between items-center w-full px-6 py-4 border-b-2 border-zinc-900">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-400" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<h1 class="font-['Space_Grotesk'] font-bold text-blue-400 tracking-tighter text-xl">UNOVA_TERMINAL</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4 font-['Space_Grotesk'] uppercase tracking-widest text-xs">
+<a class="text-zinc-500 hover:text-blue-400 transition-colors" href="#">Nodes</a>
+<a class="text-green-400 hover:text-green-300 transition-colors" href="#">Market</a>
+<a class="text-zinc-500 hover:text-blue-400 transition-colors" href="#">Archive</a>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary-container/20 text-secondary font-['Space_Grotesk'] text-xs font-bold tracking-widest border border-secondary/30">
+<span class="w-2 h-2 bg-secondary animate-pulse"></span>
+                SYNCING
+            </div>
+</div>
+</nav>
+<!-- Market Header Stats -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant/15 flex flex-wrap items-center gap-8 px-6 py-3">
+<div class="flex flex-col">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-tighter">Market Status</span>
+<span class="font-headline font-bold text-secondary text-sm flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                Operational
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-tighter">Next Cycle</span>
+<span class="font-headline font-bold text-tertiary text-sm">04:22:19</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-tighter">Volume (24h)</span>
+<span class="font-headline font-bold text-on-surface text-sm">8,192.42 PLASMA</span>
+</div>
+<div class="ml-auto hidden sm:flex items-center gap-3">
+<div class="w-24 h-6 pixel-chart-container relative overflow-hidden">
+<svg class="w-full h-full stroke-primary-dim fill-none stroke-2" viewbox="0 0 100 30">
+<path d="M0 25 L10 20 L20 22 L30 15 L40 18 L50 10 L60 12 L70 5 L80 8 L90 2 L100 5"></path>
+</svg>
+</div>
+<span class="text-xs font-label text-primary-dim">+4.2%</span>
+</div>
+</div>
+<main class="p-6 md:p-8 max-w-[1440px] mx-auto mb-20">
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Hero Stock View -->
+<div class="md:col-span-8 bg-surface-container-low p-6 flex flex-col gap-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">monitoring</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary text-on-primary px-2 py-0.5 text-xs font-bold font-label">PLSMA</span>
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Plasma Core Tech</span>
+</div>
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter">1,402.09 <span class="text-xl text-on-surface-variant">V</span></h2>
+</div>
+<div class="text-right">
+<div class="text-secondary font-headline font-bold text-xl">+12.4%</div>
+<div class="text-on-surface-variant font-label text-[10px] uppercase">Institutional Consensus</div>
+</div>
+</div>
+<!-- Main Pixel Chart -->
+<div class="w-full h-[350px] bg-surface-container-lowest pixel-chart-container relative overflow-hidden border border-outline-variant/10">
+<svg class="w-full h-full stroke-primary fill-none stroke-[3] pixel-line" viewbox="0 0 800 300">
+<path d="M0 250 L50 240 L100 260 L150 200 L200 210 L250 150 L300 180 L350 120 L400 140 L450 80 L500 100 L550 40 L600 60 L650 20 L700 40 L750 10 L800 30"></path>
+</svg>
+<!-- Floating Data Node -->
+<div class="absolute top-1/4 left-2/3 bg-primary text-on-primary p-2 text-[10px] font-bold font-label shadow-2xl">
+                        PEAK_SIGNAL: 1.488.11
+                    </div>
+</div>
+<!-- Action Panel -->
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-tertiary-fixed-dim text-on-tertiary-fixed font-headline font-black py-4 uppercase tracking-widest hover:brightness-110 transition-all active:scale-[0.98] pixel-border border-2 border-black">
+                        INITIALIZE BUY
+                    </button>
+<button class="bg-error-container text-on-surface font-headline font-black py-4 uppercase tracking-widest hover:bg-error-dim transition-all active:scale-[0.98] pixel-border border-2 border-black">
+                        LIQUIDATE SELL
+                    </button>
+</div>
+</div>
+<!-- Side Market List -->
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-highest p-4 flex justify-between items-center">
+<h3 class="font-headline font-bold uppercase tracking-widest text-sm">Watchlist_Alpha</h3>
+<span class="material-symbols-outlined text-zinc-500">filter_list</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Stock Item 1 -->
+<div class="bg-surface-container-low p-4 flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-900 border border-outline-variant/20 flex items-center justify-center font-bold text-primary">N</div>
+<div>
+<div class="font-headline font-bold text-sm">N-CORP</div>
+<div class="text-[10px] text-on-surface-variant font-label">Neo-Continental</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-8 pixel-chart-container relative overflow-hidden">
+<svg class="w-full h-full stroke-error fill-none stroke-2" viewbox="0 0 100 40">
+<path d="M0 5 L20 15 L40 10 L60 30 L80 25 L100 35"></path>
+</svg>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-xs text-error">-3.12%</div>
+<div class="text-[10px] text-on-surface-variant font-label">844.20</div>
+</div>
+</div>
+</div>
+<!-- Stock Item 2 -->
+<div class="bg-surface-container-low p-4 flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-900 border border-outline-variant/20 flex items-center justify-center font-bold text-tertiary">B</div>
+<div>
+<div class="font-headline font-bold text-sm">BW-GEN</div>
+<div class="text-[10px] text-on-surface-variant font-label">Black-White Gen</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-8 pixel-chart-container relative overflow-hidden">
+<svg class="w-full h-full stroke-secondary fill-none stroke-2" viewbox="0 0 100 40">
+<path d="M0 35 L20 25 L40 28 L60 15 L80 18 L100 5"></path>
+</svg>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-xs text-secondary">+0.88%</div>
+<div class="text-[10px] text-on-surface-variant font-label">2,109.11</div>
+</div>
+</div>
+</div>
+<!-- Stock Item 3 -->
+<div class="bg-surface-container-low p-4 flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-zinc-900 border border-outline-variant/20 flex items-center justify-center font-bold text-primary-dim">U</div>
+<div>
+<div class="font-headline font-bold text-sm">UNV-LTD</div>
+<div class="text-[10px] text-on-surface-variant font-label">Unova Holdings</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-8 pixel-chart-container relative overflow-hidden">
+<svg class="w-full h-full stroke-primary fill-none stroke-2" viewbox="0 0 100 40">
+<path d="M0 20 L25 18 L50 22 L75 15 L100 17"></path>
+</svg>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-xs text-on-surface-variant">0.00%</div>
+<div class="text-[10px] text-on-surface-variant font-label">1,200.00</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Portfolio Snapshot -->
+<div class="mt-4 bg-surface-container-highest p-6 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Asset Distribution</span>
+<span class="material-symbols-outlined text-sm text-primary">pie_chart</span>
+</div>
+<div class="flex gap-2 h-4 w-full">
+<div class="h-full bg-primary flex-grow-[6]" title="PLSMA"></div>
+<div class="h-full bg-secondary flex-grow-[2]" title="BW-GEN"></div>
+<div class="h-full bg-tertiary flex-grow-[1]" title="CASH"></div>
+<div class="h-full bg-zinc-800 flex-grow-[1]"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest p-2">
+<div class="text-[10px] font-label text-on-surface-variant uppercase">Net Value</div>
+<div class="font-headline font-bold text-sm">42,900.55 V</div>
+</div>
+<div class="bg-surface-container-lowest p-2">
+<div class="text-[10px] font-label text-on-surface-variant uppercase">Buying Power</div>
+<div class="font-headline font-bold text-sm text-tertiary">4,119.00 V</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<section class="mt-8">
+<h3 class="font-headline font-bold uppercase tracking-widest text-sm mb-4 border-l-4 border-secondary pl-4">Network_Logs (Real-time)</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-4 flex gap-4 items-start border-t border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+<div>
+<div class="text-[10px] font-label text-on-surface-variant">09:44:01</div>
+<p class="text-xs">Massive buy order detected on <span class="text-primary font-bold">PLSMA</span> from Regional Node-07.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 flex gap-4 items-start border-t border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary">priority_high</span>
+<div>
+<div class="text-[10px] font-label text-on-surface-variant">09:42:55</div>
+<p class="text-xs"><span class="text-tertiary font-bold">BW-GEN</span> is approaching historical resistance level at 2,115.00.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 flex gap-4 items-start border-t border-outline-variant/10">
+<span class="material-symbols-outlined text-zinc-500">lock</span>
+<div>
+<div class="text-[10px] font-label text-on-surface-variant">09:40:12</div>
+<p class="text-xs">Liquidity pool for <span class="text-on-surface-variant font-bold">N-CORP</span> re-locked for 7 cycles.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-zinc-950 border-t-2 border-zinc-900">
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors w-full group">
+<span class="material-symbols-outlined group-hover:text-blue-400">grid_view</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">HUB</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-400 border-t-2 border-blue-400 px-4 py-2 w-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">show_chart</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">MARKET</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors w-full group">
+<span class="material-symbols-outlined group-hover:text-blue-400">account_balance_wallet</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">PORTFOLIO</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors w-full group">
+<span class="material-symbols-outlined group-hover:text-blue-400">account_circle</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">PROFILE</span>
+</button>
+</nav>
+<!-- Visual Polish: Terminal Scanline Overlay -->
+<div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+</body></html>

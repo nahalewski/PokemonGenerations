@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnkl4"]
+size = Vector3(2, 2.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3druy"]
+size = Vector3(2, 2.5, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hn66"]
+albedo_color = Color(0.745098, 0.835294, 0.921569, 1)
+roughness = 0.98
+
+[node name="WallSegment" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cnkl4")
+material_override = SubResource("StandardMaterial3D_3hn66")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_3druy")

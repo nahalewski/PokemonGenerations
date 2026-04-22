@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical Services | Trainer Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#fecb00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#2d2f2f",
+                        "surface-dim": "#d3d5d5",
+                        "surface-bright": "#f6f6f6",
+                        "surface": "#f6f6f6",
+                        "secondary-container": "#c1d1ff",
+                        "surface-tint": "#bb0100",
+                        "outline-variant": "#acadad",
+                        "on-error": "#ffefef",
+                        "inverse-on-surface": "#9c9d9d",
+                        "surface-container-low": "#f0f1f1",
+                        "on-primary-container": "#4f0000",
+                        "primary-fixed-dim": "#ff5b47",
+                        "primary-fixed": "#ff7763",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "tertiary": "#705900",
+                        "on-primary": "#ffefed",
+                        "error": "#b41340",
+                        "inverse-primary": "#ff5540",
+                        "surface-container-high": "#e1e3e3",
+                        "error-dim": "#a70138",
+                        "on-tertiary-container": "#584500",
+                        "secondary": "#425a93",
+                        "on-primary-fixed-variant": "#600000",
+                        "on-tertiary": "#fff1d5",
+                        "surface-container": "#e7e8e8",
+                        "surface-variant": "#dbdddd",
+                        "on-tertiary-fixed": "#413200",
+                        "tertiary-fixed": "#fecb00",
+                        "secondary-fixed": "#c1d1ff",
+                        "on-secondary-fixed-variant": "#374f87",
+                        "inverse-surface": "#0c0f0f",
+                        "surface-container-highest": "#dbdddd",
+                        "error-container": "#f74b6d",
+                        "on-surface-variant": "#5a5c5c",
+                        "on-error-container": "#510017",
+                        "primary": "#bb0100",
+                        "secondary-fixed-dim": "#adc3ff",
+                        "on-primary-fixed": "#000000",
+                        "primary-container": "#ff7763",
+                        "primary-dim": "#a40100",
+                        "tertiary-fixed-dim": "#eebe00",
+                        "on-secondary-container": "#2d457d",
+                        "tertiary-dim": "#624d00",
+                        "background": "#f6f6f6",
+                        "on-secondary-fixed": "#173269",
+                        "on-surface": "#2d2f2f",
+                        "secondary-dim": "#364e86",
+                        "on-secondary": "#f1f2ff",
+                        "outline": "#767777"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bleed-sprite {
+            transform: translate(-10%, -10%);
+        }
+        .custom-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 z-50 shadow-[0_4px_20px_rgba(66,90,147,0.05)] sticky">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a young adult trainer with a sharp gaze and modern athletic wear in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS2kpDhLjQg0pVFNWYqenTGoJJ8bCrqrI0N-sIfOi6pRm_dud0ogtZH0pkPYkDoymY8vlb3SO0P-BYf3-dl0LOL4WCS_pX_5-QblGJMuxczRCAzj45BwQIYtjOBTVuyu5JVTAfI6g4Mdxk47a5_Ps6NPL4JVVcAEZ4uEdbWWbPwJzNtMxhODybXWzfOz0AcwvHBUXcexQnGLcBNKKVOaaT4dvZ56rOGCoUUzhR_b95q4qA5L5No-_odY_rv7UtGUM72J4zsPfSmhc"/>
+</div>
+<h1 class="font-['Space_Grotesk'] tracking-tighter uppercase font-bold text-red-700 dark:text-red-500 text-xl italic tracking-tighter">TRAINER CENTRAL</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-red-700 dark:text-red-500">monitoring</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Medical Diagnostic Section (Asymmetric Layout) -->
+<section class="mb-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-4">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-2 text-on-background">MEDICAL <span class="text-primary italic">DIAGNOSTIC</span></h2>
+<p class="font-label text-sm text-on-surface-variant uppercase tracking-widest mb-6">Real-time biometrics for current party</p>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-label text-xs font-bold text-secondary">PARTY INTEGRITY</span>
+<span class="font-headline text-2xl font-black text-primary">94%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 94%"></div>
+</div>
+<div class="flex items-center gap-4 py-3 bg-error-container/10 px-4 rounded-lg">
+<span class="material-symbols-outlined text-error">warning</span>
+<div class="text-xs font-bold text-error uppercase tracking-wider">Arcanine: Paralyzed</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Pokemon Diagnostic Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute -top-4 -left-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl">healing</span>
+</div>
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold">Charizard</h3>
+<p class="font-label text-[10px] text-on-surface-variant mb-4">#0006 | LVL 88</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">HP 240/240</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2">
+<div class="h-1 bg-primary rounded-full"></div>
+<div class="h-1 bg-primary rounded-full"></div>
+<div class="h-1 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Pokemon Diagnostic Card 2 (Injured) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border-l-4 border-error relative overflow-hidden">
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold">Arcanine</h3>
+<p class="font-label text-[10px] text-on-surface-variant mb-4">#0059 | LVL 82</p>
+</div>
+<span class="font-headline text-lg font-bold text-error">HP 45/212</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-error" style="width: 21%"></div>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-primary/10 border border-primary/20 text-[10px] text-primary rounded-full font-bold uppercase">PARALYSIS</span>
+<span class="px-2 py-1 bg-secondary/10 border border-secondary/20 text-[10px] text-secondary rounded-full font-bold uppercase">LOW PP</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Procedures & Infusions (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Procedures Column -->
+<div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-xl shadow-sm flex flex-col justify-between min-h-[320px]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">medical_services</span>
+<h3 class="font-headline text-2xl font-bold mb-2">FULL HEAL PROTOCOL</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Restore all health, eliminate status effects, and revitalize party energy via synaptic restoration.</p>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-md font-bold text-sm tracking-widest uppercase hover:opacity-90 active:scale-95 transition-all">
+                        INITIATE SEQUENCE
+                    </button>
+</div>
+<div class="grid grid-rows-2 gap-6">
+<div class="bg-secondary-container/20 p-6 rounded-xl flex items-center gap-6 group hover:bg-secondary-container/40 transition-colors">
+<div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg">PP RESTORE</h4>
+<p class="text-xs text-on-surface-variant">Recharge tactical move energy</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl flex items-center gap-6 group hover:bg-surface-variant transition-colors">
+<div class="w-12 h-12 bg-on-surface-variant rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">clean_hands</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg">STATUS CLEANSE</h4>
+<p class="text-xs text-on-surface-variant">Targeted biological purification</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Berry Infusions Column -->
+<div class="bg-tertiary-container/10 p-8 rounded-xl border border-tertiary/10">
+<h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">nutrition</span>
+                    BERRY INFUSIONS
+                </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-white rounded-lg border border-tertiary/20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">circle</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-tight">Lum Berry Tea</span>
+</div>
+<span class="text-[10px] font-bold text-tertiary italic">ACTIVE</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white/50 rounded-lg border border-transparent">
+<div class="flex items-center gap-3 opacity-50">
+<div class="w-8 h-8 rounded-full bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">circle</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-tight">Sitrus Extract</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">DORMANT</span>
+</div>
+</div>
+<div class="mt-8 p-4 bg-tertiary text-on-tertiary rounded-lg text-center">
+<p class="text-[10px] font-bold uppercase tracking-widest mb-1">CURRENT EFFECT</p>
+<p class="text-sm font-headline font-bold">STATUS IMMUNITY (3 TURNS)</p>
+</div>
+</div>
+</section>
+<!-- Emergency Hotline Section (Glassmorphism) -->
+<section class="relative rounded-2xl overflow-hidden bg-slate-900 min-h-[250px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-30" data-alt="futuristic holographic user interface with glowing blue and red data points against a dark technical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-ySlnHWZ35Feq_SImxmxJSj-RoQ18SZ1hcrML2XWuOqlSt7t9cWI9sUHg5b3O7oKQIhKMeif_4lbBAl4sfxp29vBq09UAhn6wTkaRAA338fiX20C1NmjJklvWufQRlRok08MQEDxpRmWKRUDHawiktQ6xY0I0crVHrqLbSrnHQNDD1Bp5m0zjIgEADDlKLG3NpqaZzKm1NFPENKL3URTDrg_MPkz-2QjjCy03itZrELbfWFdZQ-B4jgqGdn288ff6h5jmFkuGmFM"/>
+</div>
+<div class="relative z-10 p-10 flex flex-col md:flex-row justify-between items-center w-full gap-8">
+<div class="max-w-md">
+<span class="inline-block px-3 py-1 bg-error text-on-error rounded-full text-[10px] font-black tracking-widest uppercase mb-4">CRITICAL ACCESS</span>
+<h2 class="font-headline text-3xl font-bold text-white mb-2">NURSE JOY AI</h2>
+<p class="text-slate-400 text-sm">Direct neural link for emergency trauma consultation and logistics. Priority bandwidth enabled.</p>
+</div>
+<button class="px-8 py-5 bg-white text-slate-950 rounded-md font-bold tracking-tighter flex items-center gap-3 hover:bg-primary hover:text-white transition-all active:scale-95 group">
+<span class="material-symbols-outlined group-hover:animate-pulse">call</span>
+                    INITIATE HOTLINE
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-slate-950 fixed bottom-0 w-full z-50 pb-safe shadow-[0_-8px_30px_rgba(0,0,0,0.04)]">
+<div class="flex justify-around items-center w-full px-4 py-2 border-t border-slate-100 dark:border-slate-800/50">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-red-700 dark:text-red-500 bg-red-50 dark:bg-red-950/30 rounded-xl px-3 py-1.5 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Medical</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Global</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Tactical</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UNOVA_TERMINAL | Banking Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c7ef00",
+                        "surface-container-low": "#131313",
+                        "surface-container-lowest": "#000000",
+                        "inverse-surface": "#fcf8f8",
+                        "on-primary-container": "#001e59",
+                        "on-tertiary-fixed-variant": "#576a00",
+                        "on-primary-fixed-variant": "#00266d",
+                        "primary-dim": "#336ced",
+                        "on-secondary": "#005a19",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed": "#004411",
+                        "on-tertiary-container": "#4c5d00",
+                        "surface-container-highest": "#262626",
+                        "on-surface": "#ffffff",
+                        "background": "#0e0e0e",
+                        "outline-variant": "#494847",
+                        "on-primary-fixed": "#000000",
+                        "on-error-container": "#ffa8a3",
+                        "error": "#ff716c",
+                        "on-background": "#ffffff",
+                        "tertiary-container": "#d1fc00",
+                        "on-tertiary": "#546600",
+                        "surface-tint": "#8fabff",
+                        "on-error": "#490006",
+                        "secondary-container": "#006e20",
+                        "secondary-fixed-dim": "#1beb52",
+                        "on-surface-variant": "#adaaaa",
+                        "on-primary": "#002972",
+                        "inverse-primary": "#0955d7",
+                        "secondary-fixed": "#38fa5f",
+                        "error-container": "#9f0519",
+                        "primary-fixed-dim": "#648eff",
+                        "surface-variant": "#262626",
+                        "tertiary": "#f4ffc6",
+                        "primary-container": "#7a9dff",
+                        "primary": "#8fabff",
+                        "surface-container-high": "#201f1f",
+                        "on-secondary-fixed-variant": "#00641d",
+                        "tertiary-dim": "#c7ef00",
+                        "on-tertiary-fixed": "#3e4c00",
+                        "surface-container": "#1a1919",
+                        "tertiary-fixed": "#d4ff00",
+                        "inverse-on-surface": "#565554",
+                        "primary-fixed": "#7a9dff",
+                        "on-secondary-container": "#e5ffde",
+                        "surface-bright": "#2c2c2c",
+                        "surface": "#0e0e0e",
+                        "secondary-dim": "#1beb52",
+                        "secondary": "#38fa5f",
+                        "error-dim": "#d7383b",
+                        "outline": "#777575"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0e0e0e;
+            color: #ffffff;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .pixel-border {
+            box-shadow: 0 0 0 2px #000, 0 0 0 4px #1a1919;
+        }
+        .scanline-effect {
+            background: linear-gradient(to bottom, transparent 50%, rgba(143, 171, 255, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/70 backdrop-blur-md flex justify-between items-center px-6 py-4 border-b-2 border-zinc-900">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400" data-icon="sensors">sensors</span>
+<h1 class="font-['Space_Grotesk'] font-bold text-blue-400 tracking-tighter text-xl">UNOVA_TERMINAL</h1>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary-container/20 border border-secondary/30">
+<div class="w-2 h-2 bg-secondary animate-pulse"></div>
+<span class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-secondary font-bold">SYNCING</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto space-y-8">
+<!-- Hero Section: Total Balance -->
+<section class="relative">
+<div class="bg-surface-container-lowest border-l-8 border-primary p-8 md:p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<p class="font-['Space_Grotesk'] text-primary uppercase tracking-[0.3em] text-xs font-bold mb-2">Total Combined Liquidity</p>
+<h2 class="text-5xl md:text-7xl font-bold tracking-tighter text-on-surface font-['Space_Grotesk']">
+<span class="text-primary-dim">PD</span> 1,248,500.<span class="text-primary/40 text-4xl">00</span>
+</h2>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-primary-fixed-dim transition-all active:translate-y-1">
+                            Transfer
+                        </button>
+<button class="bg-surface-container-highest text-primary px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-zinc-800 transition-all border border-primary/20">
+                            Details
+                        </button>
+</div>
+</div>
+<!-- Data Stream Visualization -->
+<div class="mt-8 flex gap-1 h-1 w-full opacity-30">
+<div class="bg-primary flex-grow"></div>
+<div class="bg-primary w-24"></div>
+<div class="bg-secondary w-12"></div>
+<div class="bg-primary w-4"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Analytics & Actions -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Market Status Card -->
+<div class="bg-surface-container-low p-6 flex flex-col justify-between group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="analytics">analytics</span>
+<span class="text-[10px] font-['Space_Grotesk'] text-on-surface-variant uppercase">Mkt_VOL / 24H</span>
+</div>
+<div class="mt-12">
+<h3 class="text-3xl font-bold font-['Space_Grotesk'] text-on-surface">+12.4%</h3>
+<p class="text-sm text-secondary font-bold uppercase tracking-tighter">Flux Recovery Active</p>
+</div>
+</div>
+<!-- Transaction Preview (The Retro List) -->
+<div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant/20">
+<div class="p-4 bg-surface-container-highest flex justify-between items-center">
+<h3 class="font-['Space_Grotesk'] font-bold text-sm tracking-widest uppercase text-on-surface-variant">Recent Protocols</h3>
+<span class="text-[10px] text-primary underline cursor-pointer">Export Log</span>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<!-- Transaction Item 1 -->
+<div class="p-4 flex items-center justify-between hover:bg-primary/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="memory">memory</span>
+</div>
+<div>
+<p class="text-sm font-bold font-['Space_Grotesk']">HEALING_STATION_AUTO</p>
+<p class="text-[10px] text-on-surface-variant">T-ID: 9942-XF-01</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">-PD 200.00</p>
+<p class="text-[10px] text-on-surface-variant font-mono">14:02 UTC</p>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="p-4 flex items-center justify-between hover:bg-primary/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="database">database</span>
+</div>
+<div>
+<p class="text-sm font-bold font-['Space_Grotesk']">UNOVA_MINING_POOL</p>
+<p class="text-[10px] text-on-surface-variant">T-ID: 4421-QA-88</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-secondary">+PD 4,500.22</p>
+<p class="text-[10px] text-on-surface-variant font-mono">09:15 UTC</p>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-primary/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="token">token</span>
+</div>
+<div>
+<p class="text-sm font-bold font-['Space_Grotesk']">BATTLE_CONTRACT_Y3</p>
+<p class="text-[10px] text-on-surface-variant">T-ID: 1102-ZX-00</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">-PD 1,200.00</p>
+<p class="text-[10px] text-on-surface-variant font-mono">04:30 UTC</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Architecture Visualization (Asymmetric Image Section) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-3 h-64 bg-surface-container-lowest overflow-hidden relative">
+<img alt="Cybernetic server room" class="w-full h-full object-cover mix-blend-luminosity opacity-40 grayscale" data-alt="futuristic dark server room with glowing green and blue terminal screens and fiber optic cables in a digital brutalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeh91BIGex52cWMqfY1fxo56CE6DgyjRZx5tHI0-WfKxNu20mJ9npsAOmvIx-lpg_7gvlwKTXoOTep16mPEeg6QaTx1jvcC2oFOMue1vEycJTjpjDQy7Y4l8oNxOYhMo1V32kDiPLcPQEzx_h9FNawmGb7Qab27TlnuBbtfWwFVj0JJraxUx_2QPSJLKswtt6_DIz5pNdTiNpgC-p970DToMCEnieSWuh3QwjUAY6z2O_9Y9HIEAMhVJ8oIC3QEwLATyZkKFRKypbx"/>
+<div class="absolute inset-0 scanline-effect pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 max-w-md">
+<h4 class="text-2xl font-bold font-['Space_Grotesk'] mb-2">NETWORK_SECURITY_NODE</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">System architecture is operating within standard Unova parameters. All encryption keys are synced with the Flux Mainframe. No breaches detected in the current session.</p>
+</div>
+</div>
+<div class="bg-primary p-6 flex flex-col justify-end items-start text-on-primary">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="terminal">terminal</span>
+<p class="font-['Space_Grotesk'] text-xl font-bold leading-tight">ACCESS_ TERMINAL_ LOGS</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-zinc-950 border-t-2 border-zinc-900">
+<a class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-400 border-t-2 border-blue-400 px-4 py-2 hover:bg-zinc-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">HUB</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="show_chart">show_chart</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">MARKET</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">PORTFOLIO</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter">PROFILE</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supply Requisition | Trainer Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#fecb00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#2d2f2f",
+                        "surface-dim": "#d3d5d5",
+                        "surface-bright": "#f6f6f6",
+                        "surface": "#f6f6f6",
+                        "secondary-container": "#c1d1ff",
+                        "surface-tint": "#bb0100",
+                        "outline-variant": "#acadad",
+                        "on-error": "#ffefef",
+                        "inverse-on-surface": "#9c9d9d",
+                        "surface-container-low": "#f0f1f1",
+                        "on-primary-container": "#4f0000",
+                        "primary-fixed-dim": "#ff5b47",
+                        "primary-fixed": "#ff7763",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "tertiary": "#705900",
+                        "on-primary": "#ffefed",
+                        "error": "#b41340",
+                        "inverse-primary": "#ff5540",
+                        "surface-container-high": "#e1e3e3",
+                        "error-dim": "#a70138",
+                        "on-tertiary-container": "#584500",
+                        "secondary": "#425a93",
+                        "on-primary-fixed-variant": "#600000",
+                        "on-tertiary": "#fff1d5",
+                        "surface-container": "#e7e8e8",
+                        "surface-variant": "#dbdddd",
+                        "on-tertiary-fixed": "#413200",
+                        "tertiary-fixed": "#fecb00",
+                        "secondary-fixed": "#c1d1ff",
+                        "on-secondary-fixed-variant": "#374f87",
+                        "inverse-surface": "#0c0f0f",
+                        "surface-container-highest": "#dbdddd",
+                        "error-container": "#f74b6d",
+                        "on-surface-variant": "#5a5c5c",
+                        "on-error-container": "#510017",
+                        "primary": "#bb0100",
+                        "secondary-fixed-dim": "#adc3ff",
+                        "on-primary-fixed": "#000000",
+                        "primary-container": "#ff7763",
+                        "primary-dim": "#a40100",
+                        "tertiary-fixed-dim": "#eebe00",
+                        "on-secondary-container": "#2d457d",
+                        "tertiary-dim": "#624d00",
+                        "background": "#f6f6f6",
+                        "on-secondary-fixed": "#173269",
+                        "on-surface": "#2d2f2f",
+                        "secondary-dim": "#364e86",
+                        "on-secondary": "#f1f2ff",
+                        "outline": "#767777"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dex-matrix-grid {
+            background-image: radial-gradient(rgba(187, 1, 0, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<nav class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 z-50 shadow-[0_4px_20px_rgba(66,90,147,0.05)] flex justify-between items-center w-full px-6 py-4 sticky">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of an elite trainer with sharp focus and cinematic lighting against a dark neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ghMdd90XaRlq51HmKQlzE3j2Kp0ooPeg6m_F0Dwu0SqBYLQd-m9mkLBpjjr9n-VRiHX3hiV47h8Sq648sagjCqOcL1N-VNzYMjhKhPSDUUwjqJAomD0DTzgAtoy8Rd-X8i9e2DSWbOnbafEZKjmjG9CNRTa4afmvSi6z2iUxddwSR8zFWsv5vC9kDnFOps3BH91aDH7YypEdOtJB1hUYqeJ_8UTyeG6XXp-E_UhjDxtqUQBlZrZf9PMIvkr6Qt0shlXzpYp-lks"/>
+</div>
+<span class="text-xl font-black italic text-red-700 dark:text-red-600 tracking-tighter font-headline uppercase">TRAINER CENTRAL</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-red-700 dark:text-red-500 cursor-pointer transition-opacity hover:opacity-80 active:scale-95 duration-200" data-icon="monitoring">monitoring</span>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-8 dex-matrix-grid">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-6xl font-headline font-black tracking-tighter uppercase text-primary mb-2">Supply Requisition</h1>
+<div class="flex items-center gap-4">
+<div class="h-1 w-24 bg-primary"></div>
+<p class="font-label text-secondary font-bold tracking-widest uppercase text-xs">Logistic Support Module // Terminal 04</p>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Inventory Catalog (Bento Grid) -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Ultra Ball Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.02)] border-l-4 border-tertiary">
+<div class="absolute -top-4 -right-4 w-32 h-32 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain" data-alt="abstract circular geometric shapes with black and yellow tech patterns representing a high-performance ultra ball" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWliVGJL3KodYua_aqGJrBUllWvhv1Qv4kkZtS-kfjzvgMSgct4uXgYn88ZZuLgtTGojWO9aqs4hpevmvdWis4nhWqmy4VaOnGDVIWKWXy_Mxu-ftHzMdumbkLxI4KdVQpBd1DZevVVbQRDEGYUKrP-UrtRqyc6SS8RI9WH5H-KSVRW9xRhsDXi8lXNR_JYS_SmmdggZs8ISsgQMEL2MKjtEOe7omCm8-pChiWthjF_re2E9yjmGgUX0WQhgUuaWqnX1VWdWXyMgk"/>
+</div>
+<div class="relative z-10">
+<span class="font-label text-tertiary font-bold text-[10px] tracking-widest uppercase">Capture Tech</span>
+<h3 class="text-2xl font-headline font-bold text-on-background mb-4">Ultra Ball</h3>
+<div class="flex items-end justify-between mt-8">
+<div>
+<p class="text-xs font-label text-outline uppercase tracking-tighter">Unit Price</p>
+<p class="text-xl font-headline font-black text-on-background">800 <span class="text-xs">₽C</span></p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-label text-secondary font-bold uppercase mb-1">Stock: 48</p>
+<button class="bg-primary text-on-primary px-4 py-2 font-headline font-bold uppercase text-xs rounded shadow-lg active:scale-95 transition-all">Add to Requisition</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Max Potion Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.02)] border-l-4 border-secondary">
+<div class="absolute -top-4 -right-4 w-32 h-32 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain" data-alt="vibrant blue liquid in a glass laboratory flask with digital reflections representing advanced medical supplies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoMiZ7mQOWM1BytvFJWI8RJaInbbXxtz6IYJ6_JlW0nSmJ8xhS2dM1uRo6np150BpErVGbRB6Pk4OVrCitiAS6fzAxBOFgbqSP6H1eAHIukjnz3Jsb9KiK0_OYxUX6lhjRWHqhmSmkWG26CBV408Puud30f7YZJUOTUo9j4WxbidvDJM9_vuOnieIAeN8fd31xWScnU0GGjSWbFcDTnQaP33XaTyLHh1Cx6KdqWZOHn-37wlXjxDT01uYHE-RraD2oU-5gpZ0QYoI"/>
+</div>
+<div class="relative z-10">
+<span class="font-label text-secondary font-bold text-[10px] tracking-widest uppercase">Recovery Core</span>
+<h3 class="text-2xl font-headline font-bold text-on-background mb-4">Max Potion</h3>
+<div class="flex items-end justify-between mt-8">
+<div>
+<p class="text-xs font-label text-outline uppercase tracking-tighter">Unit Price</p>
+<p class="text-xl font-headline font-black text-on-background">2,500 <span class="text-xs">₽C</span></p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-label text-secondary font-bold uppercase mb-1">Stock: 12</p>
+<button class="bg-primary text-on-primary px-4 py-2 font-headline font-bold uppercase text-xs rounded shadow-lg active:scale-95 transition-all">Add to Requisition</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Rare Candy Card (Large Asymmetric) -->
+<div class="md:col-span-2 bg-inverse-surface p-8 rounded-xl relative overflow-hidden group shadow-2xl border-t-2 border-primary">
+<div class="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-primary/20 to-transparent"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex-1">
+<span class="inline-block bg-primary text-on-primary px-2 py-1 text-[10px] font-black uppercase tracking-[0.2em] mb-4">Class-S Tactical Gear</span>
+<h3 class="text-4xl font-headline font-black text-white uppercase tracking-tighter leading-none mb-4">Rare Candy <span class="text-primary italic">LVL-UP</span></h3>
+<p class="text-surface-variant font-body text-sm max-w-sm">Neural-stimulant designed for instant kinetic energy escalation. Strictly for master-class competitive use.</p>
+</div>
+<div class="text-center md:text-right bg-white/5 backdrop-blur-md p-6 rounded border border-white/10">
+<p class="text-xs font-label text-primary-fixed uppercase tracking-widest mb-1">Current Availability: LIMITED</p>
+<p class="text-4xl font-headline font-black text-white mb-6">4,800 <span class="text-lg">₽C</span></p>
+<button class="w-full bg-white text-on-background px-8 py-4 font-headline font-black uppercase text-sm rounded transition-all hover:bg-primary-container hover:text-on-primary-container active:scale-95">Initiate High-Tier Requisition</button>
+</div>
+</div>
+</div>
+<!-- TM Disc (Small Technical Card) -->
+<div class="bg-surface-container-high p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="album">album</span>
+<span class="text-[10px] font-label font-bold text-secondary-dim bg-secondary-container px-2 py-1 rounded">TM-89</span>
+</div>
+<h4 class="font-headline font-bold text-on-background uppercase mb-1">U-Turn</h4>
+<p class="text-xs text-on-surface-variant mb-6">Tactical retreat &amp; strike protocol.</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-black text-lg">3,000 ₽C</span>
+<button class="text-secondary hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Revive Card -->
+<div class="bg-surface-container-high p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="bolt">bolt</span>
+<span class="text-[10px] font-label font-bold text-tertiary-dim bg-tertiary-container px-2 py-1 rounded">Emergency</span>
+</div>
+<h4 class="font-headline font-bold text-on-background uppercase mb-1">Max Revive</h4>
+<p class="text-xs text-on-surface-variant mb-6">Complete cellular restoration.</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-black text-lg">4,000 ₽C</span>
+<button class="text-secondary hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Transaction Panel -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Fast Checkout Module -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-xl border-2 border-primary/10">
+<h2 class="text-xs font-label font-black text-primary uppercase tracking-[0.3em] mb-6">Authorization Terminal</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-sm font-label">
+<span class="text-outline">Sub-Total</span>
+<span class="font-bold">0 ₽C</span>
+</div>
+<div class="flex justify-between items-center text-sm font-label">
+<span class="text-outline">Tax Allocation</span>
+<span class="font-bold">0 ₽C</span>
+</div>
+<div class="h-px bg-surface-container-high"></div>
+<div class="flex justify-between items-center">
+<span class="text-lg font-headline font-bold uppercase italic">Requisition Total</span>
+<span class="text-2xl font-headline font-black text-primary">0 ₽C</span>
+</div>
+</div>
+<button class="w-full group bg-primary p-6 rounded-lg relative overflow-hidden flex items-center justify-center gap-4 active:scale-[0.98] transition-all">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+<span class="material-symbols-outlined text-white text-3xl" data-icon="fingerprint">fingerprint</span>
+<div class="text-left">
+<p class="text-[10px] font-label font-bold text-white/60 uppercase tracking-widest leading-none">Biometric Auth</p>
+<p class="text-lg font-headline font-black text-white uppercase leading-none">Fast-Checkout</p>
+</div>
+</button>
+<p class="text-center mt-4 text-[10px] font-label text-outline uppercase tracking-tighter">Syncing with Poké-Network Wallet...</p>
+</div>
+<!-- Recent Orders Log -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-4 bg-secondary flex justify-between items-center">
+<h3 class="text-xs font-headline font-bold text-white uppercase tracking-widest">Recent Logs</h3>
+<span class="text-[10px] font-label text-white/70 uppercase">Real-time Tracking</span>
+</div>
+<div class="p-2">
+<!-- Order 1 -->
+<div class="p-4 hover:bg-surface-container transition-colors">
+<div class="flex justify-between mb-2">
+<span class="text-[10px] font-label font-black text-secondary uppercase">ORD-9921-X</span>
+<span class="flex items-center gap-1 text-[10px] font-bold text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    IN TRANSIT
+                                </span>
+</div>
+<p class="text-sm font-headline font-bold text-on-background">3x Great Ball, 1x Antidote</p>
+<p class="text-[10px] font-label text-outline mt-1 uppercase italic">ETA: 4m (Drone Delivery)</p>
+</div>
+<!-- Order 2 -->
+<div class="p-4 hover:bg-surface-container transition-colors border-t border-surface-container-high">
+<div class="flex justify-between mb-2">
+<span class="text-[10px] font-label font-black text-secondary uppercase">ORD-8842-Q</span>
+<span class="flex items-center gap-1 text-[10px] font-bold text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+                                    DELIVERED
+                                </span>
+</div>
+<p class="text-sm font-headline font-bold text-on-background">5x Max Repel</p>
+<p class="text-[10px] font-label text-outline mt-1 uppercase italic">Arrived at Terminal 04</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="bg-white dark:bg-slate-950 fixed bottom-0 w-full z-50 pb-safe shadow-[0_-8px_30px_rgba(0,0,0,0.04)] border-t border-slate-100 dark:border-slate-800/50 flex justify-around items-center w-full px-4 py-2">
+<div class="flex flex-col items-center justify-center text-red-700 dark:text-red-500 bg-red-50 dark:bg-red-950/30 rounded-xl px-3 py-1.5 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Medical</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Global</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 px-3 py-1.5 hover:text-blue-700 dark:hover:text-blue-400 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Tactical</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Silph-Gold Union Market System Report</title>
+    <style>
+      :root {
+        --bg: #081019;
+        --panel: #102033;
+        --panel-2: #16293f;
+        --line: #8ad9ff;
+        --mint: #8bff9f;
+        --gold: #ffd35a;
+        --danger: #ff7474;
+        --text: #eef8ff;
+        --muted: #a8c9db;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Courier New", monospace;
+        background:
+          linear-gradient(180deg, rgba(138, 217, 255, 0.08), transparent 22%),
+          linear-gradient(90deg, rgba(139, 255, 159, 0.06), transparent 30%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding: 28px 34px 40px;
+      }
+
+      .hero {
+        border: 4px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 211, 90, 0.14), rgba(16, 32, 51, 0.95)),
+          repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.02) 0,
+            rgba(255, 255, 255, 0.02) 4px,
+            transparent 4px,
+            transparent 8px
+          );
+        padding: 24px;
+        margin-bottom: 22px;
+        box-shadow: 0 0 0 6px rgba(8, 16, 25, 0.9);
+      }
+
+      .hero h1,
+      .section h2,
+      .stat-card h3 {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+        color: var(--gold);
+      }
+
+      .hero p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 13px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      .stat-card,
+      .section {
+        border: 3px solid rgba(138, 217, 255, 0.72);
+        background: linear-gradient(180deg, var(--panel-2), var(--panel));
+        padding: 18px;
+        box-shadow: inset 0 0 0 3px rgba(8, 16, 25, 0.85);
+      }
+
+      .stat-card .value {
+        margin-top: 12px;
+        font-size: 18px;
+        color: var(--mint);
+        font-weight: bold;
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+
+      .section h2 {
+        font-size: 18px;
+        color: var(--gold);
+        margin-bottom: 12px;
+      }
+
+      .section p,
+      .section li {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--text);
+      }
+
+      ul {
+        padding-left: 18px;
+        margin: 10px 0 0;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 18px;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        font-size: 11px;
+      }
+
+      .table th,
+      .table td {
+        border: 2px solid rgba(138, 217, 255, 0.45);
+        padding: 8px;
+        text-align: left;
+      }
+
+      .table th {
+        color: var(--gold);
+        background: rgba(255, 211, 90, 0.08);
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 5px 8px;
+        border: 2px solid currentColor;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      .ok { color: var(--mint); }
+      .warn { color: var(--gold); }
+      .risk { color: var(--danger); }
+
+      .footer {
+        margin-top: 24px;
+        font-size: 10px;
+        color: var(--muted);
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <h1>Silph-Gold Union Market System Report</h1>
+        <p>
+          Production architecture overview for the Pokemon Generations financial layer.
+          This report captures the current stock-market, banking, inbox-alert, and
+          admin-control surfaces that now converge under the v3.0.0+1 production build.
+        </p>
+      </section>
+
+      <section class="grid">
+        <div class="stat-card">
+          <h3>Main Site</h3>
+          <div class="value">Port 8080</div>
+        </div>
+        <div class="stat-card">
+          <h3>Admin Web</h3>
+          <div class="value">Port 8191</div>
+        </div>
+        <div class="stat-card">
+          <h3>Aevora Exchange</h3>
+          <div class="value">Port 8192</div>
+        </div>
+        <div class="stat-card">
+          <h3>Backend API</h3>
+          <div class="value">Port 8193</div>
+        </div>
+        <div class="stat-card">
+          <h3>Asset Server</h3>
+          <div class="value">Port 8197</div>
+        </div>
+        <div class="stat-card">
+          <h3>AI Runtime</h3>
+          <div class="value">Ollama / 11434</div>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div>
+          <section class="section">
+            <h2>System Summary</h2>
+            <p>
+              The stock-market system combines player wallet balances, vault balances,
+              portfolio holdings, world-news copy, and inbox-driven notifications into
+              one shared backend. Aevora Exchange provides the trading terminal, while
+              the main Pokemon Generations experience surfaces daily briefings and
+              release news. Pokemon Center Admin acts as the command center for service
+              startup, content control, and AI-assisted operations.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Core Financial Flows</h2>
+            <ul>
+              <li>Players execute buy and sell requests through `/economy/market/buy` and `/economy/market/sell`.</li>
+              <li>Wallet funds (`pokedollars`) cover trade execution, while long-term value sits in `user.bank.balance` and `user.bank.portfolio`.</li>
+              <li>Foreign or dimensional trades apply a link-tax envelope, creating themed cost pressure for cross-market activity.</li>
+              <li>Deposit and withdraw routes bridge liquid wallet funds and the Silph-Gold vault system.</li>
+              <li>Fortune ranking and portfolio views synthesize wallet, bank, and holdings value for player-facing status screens.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div>
+          <section class="section">
+            <h2>Operational Flags</h2>
+            <div class="badge ok">Unified Ports</div>
+            <div class="badge ok">AI Alerts</div>
+            <div class="badge warn">Build Validation Pending</div>
+            <div class="badge warn">PDF Review Pending</div>
+            <div class="badge risk">Cloudflare Env Required</div>
+          </section>
+
+          <section class="section">
+            <h2>Player Messaging Layer</h2>
+            <ul>
+              <li>Daily login briefings deliver one message per player per day with dedupe protection.</li>
+              <li>Trade confirmation mail can be generated automatically after buy and sell events.</li>
+              <li>Low-vault balance alerts warn players when bank reserves fall below configured thresholds.</li>
+              <li>Shared home news remains distinct from market-specific reporting to avoid overlap.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Control Surface Map</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Surface</th>
+              <th>Role</th>
+              <th>Primary Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Main Site</td>
+              <td>Player Home</td>
+              <td>Displays release news, daily briefings, and core player navigation.</td>
+            </tr>
+            <tr>
+              <td>Aevora Exchange</td>
+              <td>Market Client</td>
+              <td>Handles stocks, banking, inbox, rankings, and market-news display.</td>
+            </tr>
+            <tr>
+              <td>Pokemon Center Admin</td>
+              <td>Command Center</td>
+              <td>Builds, launches, monitors, and now automates financial-content operations.</td>
+            </tr>
+            <tr>
+              <td>Unified Backend</td>
+              <td>Authority Layer</td>
+              <td>Stores users, portfolios, news, mail, alerts, and AI automation routes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>AI Expansion Opportunities</h2>
+        <ul>
+          <li>Investor digests: summarize player holdings and recent trade behavior into inbox-ready portfolio briefs.</li>
+          <li>Market explainers: convert raw price movement into short in-world commentary for the ticker and admin reports.</li>
+          <li>Compliance filters: scan outgoing mail and market posts for policy issues before release.</li>
+          <li>Support acceleration: draft player-support replies around failed trades, missing funds, or onboarding confusion.</li>
+          <li>Retention loops: tailor daily login briefings and alerts based on player wealth, region, or recent activity.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Recommended Next Validation Steps</h2>
+        <ul>
+          <li>Build all three web targets and confirm static hosting on ports `8080`, `8191`, and `8192`.</li>
+          <li>Launch the macOS admin build and verify the AI tab can see backend status and service state.</li>
+          <li>Start Ollama locally, install the lightweight model, and test chat plus at least three automation actions.</li>
+          <li>Verify that buy, sell, deposit, and withdraw actions produce the expected inbox alerts for sample users.</li>
+        </ul>
+      </section>
+
+      <div class="footer">Silph-Gold Union // Pixel Operations Report // v3.0.0+1</div>
+    </div>
+  </body>
+</html>

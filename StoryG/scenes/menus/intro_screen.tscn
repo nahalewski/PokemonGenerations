@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/intro_screen.gd" id="1_245x3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_sequence_player.tscn" id="2_brmpa"]
+[ext_resource type="Texture2D" path="res://assets/imported/ui/welcome-bg.png" id="3_10f8d"]
+[ext_resource type="Texture2D" path="res://assets/imported/characters/npc_prof-rowan.png" id="4_dqshj"]
+[ext_resource type="AudioStream" path="res://assets/imported/audio/bgm/professor rowan.ogg" id="5_2wwl4"]
+
+[node name="IntroScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_245x3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0705882, 0.121569, 1)
+
+[node name="BackdropTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_10f8d")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.870588, 0.913725, 1, 0.22)
+
+[node name="BackdropText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.18
+anchor_right = 0.5
+anchor_bottom = 0.18
+offset_left = -320.0
+offset_top = -40.0
+offset_right = 320.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 48
+text = "PROLOGUE"
+
+[node name="ProfessorPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = -36.0
+offset_bottom = 120.0
+
+[node name="ProfessorMargin" type="MarginContainer" parent="ProfessorPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ProfessorSprite" type="TextureRect" parent="ProfessorPanel/ProfessorMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_dqshj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialoguePlayer" parent="." instance=ExtResource("2_brmpa")]
+unique_name_in_owner = true
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_2wwl4")
+volume_db = -12.0

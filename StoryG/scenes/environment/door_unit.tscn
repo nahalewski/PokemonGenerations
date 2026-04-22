@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_95jlwm"]
+size = Vector3(1.1, 2.0, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oep2u"]
+size = Vector3(1.1, 2.0, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0n25"]
+albedo_color = Color(0.701961, 0.541176, 0.360784, 1)
+roughness = 0.9
+
+[sub_resource type="SphereMesh" id="SphereMesh_ng9no"]
+radius = 0.06
+height = 0.12
+
+[node name="DoorUnit" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_oep2u")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_95jlwm")
+material_override = SubResource("StandardMaterial3D_r0n25")
+
+[node name="Knob" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 1.05, 0.08)
+mesh = SubResource("SphereMesh_ng9no")

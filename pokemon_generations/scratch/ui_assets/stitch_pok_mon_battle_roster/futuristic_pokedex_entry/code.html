@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DEXTEL V1.0 // Pokedex Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#374f87",
+                        "on-secondary-container": "#2d457d",
+                        "on-primary": "#ffefed",
+                        "tertiary-container": "#fecb00",
+                        "primary-fixed": "#ff7763",
+                        "tertiary-fixed-dim": "#eebe00",
+                        "on-error-container": "#510017",
+                        "inverse-on-surface": "#9c9d9d",
+                        "secondary-fixed": "#c1d1ff",
+                        "primary-container": "#ff7763",
+                        "tertiary-dim": "#624d00",
+                        "primary-fixed-dim": "#ff5b47",
+                        "surface-container-high": "#e1e3e3",
+                        "on-tertiary-fixed": "#413200",
+                        "on-surface-variant": "#5a5c5c",
+                        "on-primary-fixed": "#000000",
+                        "on-tertiary": "#fff1d5",
+                        "outline": "#767777",
+                        "surface-bright": "#f6f6f6",
+                        "surface-container-highest": "#dbdddd",
+                        "on-primary-fixed-variant": "#600000",
+                        "surface-tint": "#bb0100",
+                        "on-tertiary-container": "#584500",
+                        "surface-container-low": "#f0f1f1",
+                        "surface-container": "#e7e8e8",
+                        "on-secondary-fixed": "#173269",
+                        "outline-variant": "#acadad",
+                        "on-secondary": "#f1f2ff",
+                        "secondary-container": "#c1d1ff",
+                        "error": "#b41340",
+                        "primary-dim": "#a40100",
+                        "error-container": "#f74b6d",
+                        "tertiary-fixed": "#fecb00",
+                        "tertiary": "#705900",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "on-primary-container": "#4f0000",
+                        "on-error": "#ffefef",
+                        "on-background": "#2d2f2f",
+                        "surface-dim": "#d3d5d5",
+                        "secondary-fixed-dim": "#adc3ff",
+                        "inverse-surface": "#0c0f0f",
+                        "surface": "#f6f6f6",
+                        "primary": "#bb0100",
+                        "secondary": "#425a93",
+                        "error-dim": "#a70138",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-dim": "#364e86",
+                        "inverse-primary": "#ff5540",
+                        "background": "#f6f6f6",
+                        "on-surface": "#2d2f2f",
+                        "surface-variant": "#dbdddd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .clip-path-right-angle {
+            clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+        }
+        .scanline-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .hologram-glow {
+            box-shadow: 0 0 40px rgba(187, 1, 0, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">menu</span>
+<h1 class="text-2xl font-black italic tracking-tighter text-red-700 dark:text-red-600 font-headline uppercase">DEXTEL V1.0</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<span class="text-red-700 dark:text-red-500 font-bold font-headline uppercase tracking-tighter cursor-pointer">Registry</span>
+<span class="text-slate-500 dark:text-slate-400 font-headline uppercase tracking-tighter hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors px-2 py-1">Telemetry</span>
+<span class="text-slate-500 dark:text-slate-400 font-headline uppercase tracking-tighter hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors px-2 py-1">Strategy</span>
+<span class="text-slate-500 dark:text-slate-400 font-headline uppercase tracking-tighter hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors px-2 py-1">Scan</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Trainer Profile" data-alt="professional male trainer profile avatar in tech-wear with serious expression, high-end editorial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO5z__9sv3B-GKsIxd3ovLVvRSMJ4yNFtqJ5tS9u1GHAC6j7yQIUfv89lVq7OnAsGja2JutFwPCoNcW4C35jF3Nk-M440o9lqK_hYLitGMNtENPiktbptN50GPgYqtYOheuIYpX-qfu_21SsKAoWaHKNjGrDUKCn7rJwjs0efkWM897ZJL8gzudJFSrwsUNmKLiwCJeQN-HNLgMGU7Q49zLmyzqFksKOqw5AjRgQe4t4LKKH7lJPFmwICr1YGtlRfetDcrmDFcf7Q"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
+<!-- Hero: Holographic Scanning Field -->
+<section class="relative grid md:grid-cols-2 gap-8 items-center">
+<div class="relative group">
+<!-- Background Glow and Grid -->
+<div class="absolute inset-0 bg-primary/5 rounded-3xl hologram-glow"></div>
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #bb0100 1px, transparent 0); background-size: 24px 24px;"></div>
+<!-- Main Entity Image -->
+<div class="relative z-10 p-8 flex justify-center items-center overflow-visible">
+<img alt="Mewtwo" class="w-full max-w-md drop-shadow-[0_0_50px_rgba(187,1,0,0.4)] scale-110 transform transition-transform group-hover:scale-115" data-alt="Futuristic high-tech 3D render of a powerful bipedal psychic pokemon floating in a blue and red energy field with digital scan lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVg7ufz1Xcc3xzTm9vF13DEQp-R68zRtJevd96q6tl2zHKRoSxOkFAch8W1PgEbSpUbfsjIO7RM89QoogVjOgTuKQLgy-pQsGX_TCgz62xBGZHTk9tXDfHNUOHZ_x9iAx6fm2IhaJeR5j6WwquUyZjXyvMLlK4X0B9K_lBeFFVsP0jUqq2SXKvPcTEzl4_BbctpoBGcOTShHbZul-IVh7TvBcVcI5r8Hd37ihNcaKrDcc_TIk5mByb_oxZDFXzuX8d-UU0vazN0vQ"/>
+</div>
+<!-- Scan Overlays -->
+<div class="absolute inset-0 scanline-overlay rounded-3xl opacity-40"></div>
+<!-- Floating Data Points -->
+<div class="absolute top-10 right-10 bg-white/10 backdrop-blur-md p-3 border-l-4 border-primary">
+<p class="font-headline text-xs text-primary font-bold tracking-widest">SIGNAL LOCK</p>
+<p class="font-headline text-xl font-bold">100% CRYSTAL</p>
+</div>
+</div>
+<div class="space-y-6 flex flex-col justify-center">
+<div class="flex items-center gap-3">
+<span class="bg-primary/10 text-primary px-3 py-1 text-xs font-bold font-headline tracking-tighter">#150</span>
+<div class="h-px flex-1 bg-surface-container-high"></div>
+</div>
+<h2 class="text-7xl md:text-8xl font-headline font-black uppercase tracking-tighter text-on-surface leading-none">
+                    MEWTWO
+                </h2>
+<div class="flex flex-wrap gap-3">
+<span class="px-6 py-1 rounded-full text-sm font-bold font-label bg-secondary-container/20 border border-secondary text-on-secondary-container">PSYCHIC</span>
+<span class="px-6 py-1 rounded-full text-sm font-bold font-label bg-primary-container/20 border border-primary text-on-primary-container">ELITE-CLASS</span>
+</div>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-md">
+                    Genetic anomaly detected. Highly unstable synaptic patterns. Neural output exceeds standard analytical capacity of DEXTEL V1.0 modules.
+                </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-headline font-bold uppercase tracking-widest rounded-md hover:bg-primary-dim transition-all active:scale-95">Initiate Battle</button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 font-headline font-bold uppercase tracking-widest rounded-md hover:opacity-80 transition-all">Track Habitat</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Data Panels -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Biological Signature -->
+<div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-xl shadow-sm space-y-6 flex flex-col">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Biological Signature</h3>
+<span class="material-symbols-outlined text-secondary">genetics</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-container py-2">
+<span class="text-on-surface-variant font-label text-sm">Height</span>
+<span class="font-headline font-bold">2.0 m</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-container py-2">
+<span class="text-on-surface-variant font-label text-sm">Weight</span>
+<span class="font-headline font-bold">122.0 kg</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-container py-2">
+<span class="text-on-surface-variant font-label text-sm">Ability</span>
+<span class="font-headline font-bold text-primary">Pressure</span>
+</div>
+</div>
+<div class="mt-auto pt-6">
+<div class="h-32 w-full bg-surface-container-low rounded-lg overflow-hidden flex items-end gap-1 px-4 py-2">
+<!-- Pseudo-chart bars -->
+<div class="w-full bg-primary/20 h-1/2"></div>
+<div class="w-full bg-primary h-3/4"></div>
+<div class="w-full bg-primary/40 h-1/4"></div>
+<div class="w-full bg-primary h-full"></div>
+<div class="w-full bg-primary/10 h-1/3"></div>
+<div class="w-full bg-primary h-1/2"></div>
+</div>
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mt-2">Genetic Volatility Graph</p>
+</div>
+</div>
+<!-- Stats Matrix -->
+<div class="md:col-span-8 bg-surface-container p-8 rounded-xl space-y-8">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Combat Analytics</h3>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+<div class="space-y-6">
+<!-- Stat Item -->
+<div class="space-y-2">
+<div class="flex justify-between font-label text-xs font-bold uppercase tracking-widest">
+<span>Attack</span>
+<span class="text-primary">110</span>
+</div>
+<div class="h-2 bg-surface-container-highest w-full rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 55%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label text-xs font-bold uppercase tracking-widest">
+<span>Defense</span>
+<span class="text-primary">90</span>
+</div>
+<div class="h-2 bg-surface-container-highest w-full rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label text-xs font-bold uppercase tracking-widest">
+<span>Sp. Attack</span>
+<span class="text-primary">154</span>
+</div>
+<div class="h-2 bg-surface-container-highest w-full rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 77%;"></div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between font-label text-xs font-bold uppercase tracking-widest">
+<span>Sp. Defense</span>
+<span class="text-primary">90</span>
+</div>
+<div class="h-2 bg-surface-container-highest w-full rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label text-xs font-bold uppercase tracking-widest">
+<span>Speed</span>
+<span class="text-primary">130</span>
+</div>
+<div class="h-2 bg-surface-container-highest w-full rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 65%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="text-center">
+<p class="text-[10px] font-bold text-on-surface-variant font-label uppercase">Base Power</p>
+<p class="text-3xl font-headline font-black text-secondary">680</p>
+</div>
+<div class="w-px h-10 bg-surface-container-high"></div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-on-surface-variant font-label uppercase">Win Rate</p>
+<p class="text-3xl font-headline font-black text-tertiary">94%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Habitat Telemetry -->
+<div class="md:col-span-7 bg-surface-container-low rounded-xl overflow-hidden relative min-h-[400px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale opacity-50 contrast-125" data-alt="Stylized dark digital map of a rocky mountain range with glowing red telemetry points and circular data overlays" data-location="Cerulean Cave" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5IdNntKi8nsxpy_t1ME-fNTT4g_sXXiZL-JzH9IXXELBv8Sfo596RjnztGFLOQ_M4wZhOO4-o682qtsTdhz3V_ROe5c9NWWKvmqFJd1Ko7snPXD4rSHp-011S5UA3EjVbn4DpX90VUjwudG3s3UJftl9bg3PfJGGMEAGPRKG5So4DpyuOH0YB4h3toEE0jV4JgVyDhC5PTHlVamqj7_bmR2vjH96W4aggk380ZgMVTKR7RcFb2bgnV-6GGkNvnLDT0nYhvyu1d1g"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="relative z-10 p-8 h-full flex flex-col">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Habitat Telemetry</h3>
+<div class="mt-auto space-y-4">
+<div class="bg-white/10 backdrop-blur-md p-4 rounded border-l-2 border-primary">
+<p class="font-headline font-bold text-sm text-primary uppercase">Location: Cerulean Cave</p>
+<p class="text-xs text-on-surface-variant font-body">Coords: 35.6895° N, 139.6917° E</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-secondary text-on-secondary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">Active Signal</span>
+<span class="bg-on-surface-variant text-white text-[10px] px-3 py-1 font-bold uppercase tracking-widest">Proximity Warning</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Move Matrix -->
+<div class="md:col-span-5 bg-surface-container-highest p-8 rounded-xl space-y-6">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Move Matrix</h3>
+<div class="space-y-3">
+<div class="group flex items-center justify-between p-4 bg-surface-container-lowest border-l-4 border-secondary hover:bg-secondary hover:text-white transition-all cursor-pointer">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg">Psystrike</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest opacity-60">Psychic / Special</span>
+</div>
+<span class="font-headline font-bold text-2xl">100</span>
+</div>
+<div class="group flex items-center justify-between p-4 bg-surface-container-lowest border-l-4 border-primary hover:bg-primary hover:text-white transition-all cursor-pointer">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg">Aura Sphere</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest opacity-60">Fighting / Special</span>
+</div>
+<span class="font-headline font-bold text-2xl">80</span>
+</div>
+<div class="group flex items-center justify-between p-4 bg-surface-container-lowest border-l-4 border-tertiary hover:bg-tertiary hover:text-white transition-all cursor-pointer">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg">Psychic</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest opacity-60">Psychic / Special</span>
+</div>
+<span class="font-headline font-bold text-2xl">90</span>
+</div>
+<div class="group flex items-center justify-between p-4 bg-surface-container-lowest border-l-4 border-slate-500 hover:bg-slate-900 hover:text-white transition-all cursor-pointer">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg">Shadow Ball</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest opacity-60">Ghost / Special</span>
+</div>
+<span class="font-headline font-bold text-2xl">80</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Section: Cry & Evolution -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Cry Analysis -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Cry Analysis</h3>
+<span class="material-symbols-outlined text-primary" data-weight="fill">graphic_eq</span>
+</div>
+<div class="relative h-24 w-full bg-slate-900 rounded flex items-center justify-center gap-1 overflow-hidden">
+<!-- Audio Wave Visualization -->
+<div class="w-1 h-8 bg-red-600 rounded-full"></div>
+<div class="w-1 h-12 bg-red-600 rounded-full"></div>
+<div class="w-1 h-16 bg-red-500 rounded-full"></div>
+<div class="w-1 h-20 bg-red-400 rounded-full"></div>
+<div class="w-1 h-12 bg-red-600 rounded-full"></div>
+<div class="w-1 h-16 bg-white rounded-full"></div>
+<div class="w-1 h-10 bg-red-600 rounded-full"></div>
+<div class="w-1 h-14 bg-red-400 rounded-full"></div>
+<div class="w-1 h-20 bg-red-500 rounded-full"></div>
+<div class="w-1 h-16 bg-red-600 rounded-full"></div>
+<div class="w-1 h-8 bg-red-600 rounded-full"></div>
+<div class="w-1 h-14 bg-red-500 rounded-full"></div>
+<div class="w-1 h-10 bg-red-400 rounded-full"></div>
+<div class="w-1 h-18 bg-red-600 rounded-full"></div>
+<div class="w-1 h-12 bg-white rounded-full"></div>
+<div class="w-1 h-8 bg-red-600 rounded-full"></div>
+<div class="scanline-overlay absolute inset-0 opacity-10"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold font-label uppercase text-on-surface-variant tracking-widest">
+<span>Frequency: 14.2kHz</span>
+<span>Intensity: Critical</span>
+<span>0:02 / 0:02</span>
+</div>
+</div>
+<!-- Evolutionary Pathway -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Evolutionary Pathway</h3>
+<div class="flex items-center justify-around">
+<div class="text-center space-y-2">
+<div class="w-20 h-20 bg-white rounded-full border-2 border-primary/20 flex items-center justify-center overflow-hidden grayscale">
+<img alt="Mew" data-alt="Small cute psychic pokemon cat-like mew floating in pink bubble" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKUEh-WGwJ_Cyaf2inE7wswQd1XRKkUsZ_bruoBmyYsIrkUZ7lwI3wRyjxgtFxQmTH0E43oQG2aVD8NZDam82iLsfDje3AMG-3PWc0tCST7LFNhQ5WyzW219W_JzMdOssHiqsvIkkyMrZAP_H4oppXVAzfxyt-F1NHIai1FTHPDL4cr_7sM90b_oga4Gn9NnA9jGUCCdvMePKm-8hcpxjeoKfnJYavKKyO2nyCgrcwAE8fpaoe7wNs7TOPkM17YBSboRsp6bICzFw"/>
+</div>
+<p class="text-[10px] font-bold font-headline uppercase text-on-surface-variant">Genetic Source</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">double_arrow</span>
+<div class="text-center space-y-2">
+<div class="w-24 h-24 bg-primary/10 rounded-full border-2 border-primary flex items-center justify-center overflow-hidden">
+<img alt="Mewtwo" data-alt="Central powerful psychic pokemon profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACSk2ZEzNdEtgqKmZtZDt81sD4qNdZ21M0xVUWtPp2_rh7sBdYv18d8m1QsGYBNZMOs-mF8gvHERsljc4TKl2MlN8ld05hl0bDEu9_9faGIfTp0ST4lY5If6J87B6Oll5GHM1gOjqTT71zSh6Tmt-A-TiD01qqukhTqyxVX_AQ9ZlSFJrUtLxlGUR-kR7OBS5vfRWhI7D6Dg8Q2cRf15avIUAwrzd6Zl9lXI2vkChYh6Rlm2uUo1BQzuOmoOlhY2_2Ve6EHL97Djk"/>
+</div>
+<p class="text-[10px] font-bold font-headline uppercase text-primary">Current Stage</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">double_arrow</span>
+<div class="text-center space-y-2">
+<div class="w-20 h-20 bg-tertiary/10 rounded-full border-2 border-tertiary flex items-center justify-center overflow-hidden grayscale brightness-75">
+<img alt="Mega Mewtwo Y" data-alt="Powerful mega evolution psychic pokemon with extra tendrils and glowing eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKbRgafHtzOe3rmQ9sjCMmH7Covyu6p1CAAW2TYl0thV68sbSOnsmOzwVGWKfG57b-X03Kxw5j00_C14nljCmD-U-qTlFsTj282CSf0obWo66o2eUWHVjkdyzdM0CzasdoWBV3ooj7hWqNKj_w2PL9hlXnr8D1c3erg8zySpkZ9PS7dAWkHr0cTkA-Q1gZul8xLrmeJV6BtMjfXk3P6lV8ejTjyXdZp2zlpRO9LlvDVlFZUpJnKjV8MttJ7rlb_yYvEu31tZZu5U"/>
+</div>
+<p class="text-[10px] font-bold font-headline uppercase text-on-surface-variant">Mega Zenith</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (Fixed for Mobile/Web Cluster in Shell) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-slate-900 dark:bg-black z-50 md:h-20">
+<div class="flex flex-col items-center justify-center text-slate-400 px-6 cursor-pointer hover:text-red-400 transition-colors group">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-150">grid_view</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest font-bold">Registry</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-6 cursor-pointer hover:text-red-400 transition-colors group">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-150">monitoring</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest font-bold">Telemetry</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-6 cursor-pointer hover:text-red-400 transition-colors group">
+<span class="material-symbols-outlined mb-1 group-active:scale-90 duration-150">psychology</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest font-bold">Strategy</span>
+</div>
+<!-- Active Tab: Scan -->
+<div class="flex flex-col items-center justify-center text-white bg-red-700 rounded-none h-full px-10 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">android_fingerprint</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest font-bold">Scan</span>
+</div>
+</nav>
+<!-- Scan Line Aesthetic Overlay (Global) -->
+<div class="fixed inset-0 pointer-events-none z-[100] opacity-5 mix-blend-overlay">
+<div class="scanline-overlay w-full h-full"></div>
+</div>
+</body></html>

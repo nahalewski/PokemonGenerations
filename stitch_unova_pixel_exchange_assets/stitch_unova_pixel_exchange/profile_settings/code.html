@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c7ef00",
+                    "surface-container-low": "#131313",
+                    "surface-container-lowest": "#000000",
+                    "inverse-surface": "#fcf8f8",
+                    "on-primary-container": "#001e59",
+                    "on-tertiary-fixed-variant": "#576a00",
+                    "on-primary-fixed-variant": "#00266d",
+                    "primary-dim": "#336ced",
+                    "on-secondary": "#005a19",
+                    "surface-dim": "#0e0e0e",
+                    "on-secondary-fixed": "#004411",
+                    "on-tertiary-container": "#4c5d00",
+                    "surface-container-highest": "#262626",
+                    "on-surface": "#ffffff",
+                    "background": "#0e0e0e",
+                    "outline-variant": "#494847",
+                    "on-primary-fixed": "#000000",
+                    "on-error-container": "#ffa8a3",
+                    "error": "#ff716c",
+                    "on-background": "#ffffff",
+                    "tertiary-container": "#d1fc00",
+                    "on-tertiary": "#546600",
+                    "surface-tint": "#8fabff",
+                    "on-error": "#490006",
+                    "secondary-container": "#006e20",
+                    "secondary-fixed-dim": "#1beb52",
+                    "on-surface-variant": "#adaaaa",
+                    "on-primary": "#002972",
+                    "inverse-primary": "#0955d7",
+                    "secondary-fixed": "#38fa5f",
+                    "error-container": "#9f0519",
+                    "primary-fixed-dim": "#648eff",
+                    "surface-variant": "#262626",
+                    "tertiary": "#f4ffc6",
+                    "primary-container": "#7a9dff",
+                    "primary": "#8fabff",
+                    "surface-container-high": "#201f1f",
+                    "on-secondary-fixed-variant": "#00641d",
+                    "tertiary-dim": "#c7ef00",
+                    "on-tertiary-fixed": "#3e4c00",
+                    "surface-container": "#1a1919",
+                    "tertiary-fixed": "#d4ff00",
+                    "inverse-on-surface": "#565554",
+                    "primary-fixed": "#7a9dff",
+                    "on-secondary-container": "#e5ffde",
+                    "surface-bright": "#2c2c2c",
+                    "surface": "#0e0e0e",
+                    "secondary-dim": "#1beb52",
+                    "secondary": "#38fa5f",
+                    "error-dim": "#d7383b",
+                    "outline": "#777575"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+        .pixel-step { box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bg-scanline {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 border-b-2 border-zinc-900 bg-zinc-950/70 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-['Space_Grotesk'] font-bold text-blue-400 tracking-tighter text-lg">UNOVA_TERMINAL</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+<span class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-blue-400">SYNCING</span>
+</div>
+</header>
+<main class="min-h-screen pt-24 pb-32 px-4 max-w-2xl mx-auto space-y-8">
+<!-- User Info Card - Asymmetric Brutalist Design -->
+<section class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-primary to-primary-dim opacity-20 blur-sm"></div>
+<div class="relative bg-surface-container-low p-6 border-l-4 border-primary">
+<div class="flex flex-col md:flex-row gap-6">
+<!-- Profile Image with pixel-art tech aesthetic -->
+<div class="relative w-32 h-32 flex-shrink-0">
+<div class="absolute inset-0 bg-primary/10 border border-primary/30"></div>
+<img alt="User Avatar" class="w-full h-full object-cover grayscale contrast-125" data-alt="abstract glitchy digital portrait with neon blue highlights and high contrast technical overlay, cyberpunk style aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3hPtfx7q9RN4YOgjYiccknoiKcrxie8vmFiy0UeGfwz6qWigX5VlvnN34gDTPjAXPu3W-KQXpA2FbIZHbBKT6QhEuz7XylupGfw8BA8U6RIoZId44Hu7i6LOW8ooJfNXkxibzm3xDl42DoAJY3XT8Gl1mNOEmuX0iwm2cZhjFePdANBmLfQzRXkd9b53Jo9SWDPcChwuKd9T0Pwqj4LlqY3yYxlL4xrMPMIP-jLhFDNgQl43QXSk7G09tqBl-R1HFWAv5OevWfFUK"/>
+<div class="absolute bottom-0 right-0 bg-primary text-on-primary px-2 py-1 font-space text-[10px] font-bold">LVL. 82</div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<h1 class="font-space text-3xl font-extrabold tracking-tighter uppercase leading-none mb-1">OPERATOR_N04</h1>
+<p class="font-space text-primary-dim text-xs tracking-widest uppercase">Rank: Elite Grid Navigator</p>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-highest p-3">
+<span class="block font-space text-[10px] text-on-surface-variant uppercase mb-1">Portfolio Value</span>
+<span class="font-space text-xl font-bold text-secondary">42.859 PD</span>
+</div>
+<div class="bg-surface-container-highest p-3">
+<span class="block font-space text-[10px] text-on-surface-variant uppercase mb-1">Network Status</span>
+<span class="font-space text-xl font-bold text-primary">ENCRYPTED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Settings Sections - Pixel Gaps instead of Dividers -->
+<div class="space-y-4">
+<!-- Connection Fail-Safe Section -->
+<div class="bg-surface-container p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">security</span>
+<h2 class="font-space text-sm font-bold tracking-widest uppercase text-tertiary-fixed-dim">Connection Fail-Safe</h2>
+</div>
+<div class="space-y-4">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low transition-colors hover:bg-surface-container-highest">
+<div>
+<p class="font-space text-sm font-bold uppercase tracking-tight">Auto-Kill Switch</p>
+<p class="text-xs text-on-surface-variant max-w-[200px]">Sever all active node links if latency exceeds 500ms.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest border border-outline-variant peer-checked:bg-secondary-container peer-checked:border-secondary transition-all"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline peer-checked:translate-x-6 peer-checked:bg-secondary transition-transform"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low transition-colors hover:bg-surface-container-highest">
+<div>
+<p class="font-space text-sm font-bold uppercase tracking-tight">Signal Masking</p>
+<p class="text-xs text-on-surface-variant">Obfuscate terminal identity during external syncing.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest border border-outline-variant peer-checked:bg-secondary-container peer-checked:border-secondary transition-all"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline peer-checked:translate-x-6 peer-checked:bg-secondary transition-transform"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Stock Hours Alerts -->
+<div class="bg-surface-container p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h2 class="font-space text-sm font-bold tracking-widest uppercase text-primary">Stock Hours Alerts</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<button class="flex flex-col items-start p-4 bg-surface-container-low hover:bg-primary/10 transition-all border-l-2 border-primary-dim text-left">
+<span class="font-space text-[10px] text-on-surface-variant uppercase mb-1">Pre-Market Open</span>
+<span class="font-space text-base font-bold uppercase">08:00 UTC</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-surface-container-low hover:bg-primary/10 transition-all border-l-2 border-primary-dim text-left">
+<span class="font-space text-[10px] text-on-surface-variant uppercase mb-1">Closing Bell</span>
+<span class="font-space text-base font-bold uppercase">22:00 UTC</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-surface-container-low hover:bg-primary/10 transition-all border-l-2 border-primary-dim text-left">
+<span class="font-space text-[10px] text-on-surface-variant uppercase mb-1">Volatility Spike</span>
+<span class="font-space text-base font-bold uppercase">Enabled</span>
+</button>
+<button class="flex items-center justify-center p-4 bg-surface-container-highest border-2 border-dashed border-outline-variant text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined mr-2">add</span>
+<span class="font-space text-xs font-bold uppercase">Add Window</span>
+</button>
+</div>
+</div>
+<!-- Sync Frequency Slider -->
+<div class="bg-surface-container p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary">sync_alt</span>
+<h2 class="font-space text-sm font-bold tracking-widest uppercase text-secondary">Sync Frequency</h2>
+</div>
+<div class="space-y-6">
+<div class="relative w-full h-2 bg-surface-container-highest">
+<div class="absolute top-0 left-0 h-full bg-secondary" style="width: 75%;"></div>
+<div class="absolute top-1/2 left-3/4 -translate-y-1/2 w-4 h-8 bg-on-surface border-2 border-secondary pixel-step"></div>
+</div>
+<div class="flex justify-between font-space text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>Low Energy</span>
+<span class="text-secondary font-bold">Standard (15m)</span>
+<span>High Bitrate</span>
+</div>
+</div>
+</div>
+<!-- System Destruction / Logout (Extreme Contrast) -->
+<div class="pt-8">
+<button class="w-full py-4 bg-error-container/20 text-error border border-error/30 font-space font-bold tracking-[0.2em] uppercase hover:bg-error-container hover:text-on-error transition-colors">
+                    Terminate_Session [LOGOUT]
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-zinc-950 border-t-2 border-zinc-900">
+<!-- HUB -->
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors flex-1 group">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter uppercase">HUB</span>
+</button>
+<!-- MARKET -->
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors flex-1 group">
+<span class="material-symbols-outlined text-[24px]">show_chart</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter uppercase">MARKET</span>
+</button>
+<!-- PORTFOLIO -->
+<button class="flex flex-col items-center justify-center text-zinc-600 px-4 py-2 hover:bg-zinc-900 transition-colors flex-1 group">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter uppercase">PORTFOLIO</span>
+</button>
+<!-- PROFILE (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-400 border-t-2 border-blue-400 px-4 py-2 flex-1">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-['Space_Grotesk'] font-bold text-[10px] tracking-tighter uppercase">PROFILE</span>
+</button>
+</nav>
+<!-- CRT Overlay Decoration -->
+<div class="pointer-events-none fixed inset-0 z-[100] opacity-[0.03] bg-scanline"></div>
+</body></html>

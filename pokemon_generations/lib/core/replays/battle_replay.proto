@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package pokemon.generations.replays;
+
+message BattleReplay {
+  uint32 version = 1;
+  string battle_id = 2;
+  string ruleset = 3;
+  uint64 start_timestamp_ms = 4;
+  uint64 rng_seed = 5;
+  
+  Player p1 = 6;
+  Player p2 = 7;
+  
+  repeated BattleTurn turns = 8;
+  string winner = 9;
+  string end_reason = 10; // 'faint', 'run', 'forfeit', 'timeout'
+}
+
+message Player {
+  string username = 1;
+  string display_name = 2;
+  repeated PokemonState team = 3;
+}
+
+message PokemonState {
+  string pokemon_id = 1;
+  string nickname = 2;
+  uint32 level = 3;
+  uint32 max_hp = 4;
+  uint32 current_hp = 5;
+  repeated string move_ids = 6;
+  string ability_id = 7;
+  string item_id = 8;
+  string gender = 9;
+  bool is_shiny = 10;
+}
+
+message BattleTurn {
+  uint32 turn_index = 1;
+  repeated BattleEvent events = 2;
+}
+
+message BattleEvent {
+  uint64 timestamp_ms = 1;
+  oneof event {
+    MoveEvent move = 2;
+    DamageEvent damage = 3;
+    HealEvent heal = 4;
+    SwitchEvent switch = 5;
+    StatusEvent status = 6;
+    FaintEvent faint = 7;
+    ItemEvent item = 8;
+    WeatherEvent weather = 9;
+    TerrainEvent terrain = 10;
+    InfoEvent info = 11;
+  }
+}
+
+message MoveEvent {
+  string actor_id = 1; // 'p1' or 'p2'
+  string move_id = 2;
+  string move_name = 3;
+  bool is_crit = 4;
+  float effectiveness = 5; // 0.0, 0.5, 1.0, 2.0, 4.0
+}
+
+message DamageEvent {
+  string target_id = 1;
+  int32 hp_delta = 2;
+  int32 remaining_hp = 3;
+  string source_type = 4; // 'move', 'status', 'entry_hazard', 'recoil'
+}
+
+message HealEvent {
+  string target_id = 1;
+  int32 hp_delta = 2;
+  int32 remaining_hp = 3;
+  string source_type = 4; // 'item', 'move', 'ability'
+}
+
+message SwitchEvent {
+  string actor_id = 1;
+  string pokemon_id = 2;
+  string pokemon_name = 3;
+  int32 current_hp = 4;
+  int32 max_hp = 5;
+}
+
+message StatusEvent {
+  string target_id = 1;
+  string status_type = 2; // 'paralyze', 'burn', 'sleep', 'freeze', 'poison', 'toxic'
+  bool applied = 3; // true = added, false = removed
+}
+
+message FaintEvent {
+  string target_id = 1;
+}
+
+message ItemEvent {
+  string actor_id = 1;
+  string item_id = 2;
+  string target_id = 3;
+}
+
+message WeatherEvent {
+  string weather_type = 1; // 'rain', 'sun', 'sand', 'snow', 'none'
+}
+
+message TerrainEvent {
+  string terrain_type = 1; // 'electric', 'grassy', 'misty', 'psychic', 'none'
+}
+
+message InfoEvent {
+  string message = 1;
+}

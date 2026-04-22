@@ -1,0 +1,63 @@
+# Standard ignore
+**/node_modules/
+**/build/
+/assets/community/
+**/.dart_tool/
+**/.pub-cache/
+**/.gemini/
+**/.idea/
+**/.vscode/
+*.log
+.DS_Store
+command_center/
+asset_sources/
+/devops/
+pokemon_center_admin/
+
+# Pokémon Center Android — private admin app (code + builds excluded from GitHub)
+Pokemon Center Android/
+pokemon center android app/
+
+# APK builds — never commit compiled APKs
+**/*.apk
+**/*.aab
+
+# Large release archives
+**/*.zip
+**/*.tar.gz
+**/*.tar
+
+# OST Library
+Pokemon Generations Official SoundTrack/
+
+# Media and Data Exclusions
+*.mp3
+*.wav
+*.replay
+
+# User Data — never commit to GitHub
+**/data/replays/
+**/data/users/
+**/data/users/*.json
+**/data/bank/
+**/data/bank/*.json
+**/data/profile_pics/
+**/data/ai_state.json
+**/data/news.json
+**/data/logs/
+**/data/logs/**
+
+# Server-side logs & archives — contain user-linked event data
+.logs/
+.logs/**
+pokemon_generations_backend/.logs/
+pokemon_generations_backend/.logs/**
+
+# User votes & reports
+pokemon_generations_backend/VOTES/
+pokemon_generations_backend/VOTES/**
+pokemon_generations_backend/user_reports.txt
+
+# Runtime cache files generated per-user
+pokemon_generations_backend/pokemon_cache.json
+pokemon_generations_backend/data/*.json

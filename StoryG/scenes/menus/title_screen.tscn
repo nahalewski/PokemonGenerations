@@ -1,0 +1,198 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/title_screen.gd" id="1_32h8g"]
+[ext_resource type="Texture2D" path="res://assets/imported/ui/welcome-bg.png" id="2_4tx53"]
+[ext_resource type="AudioStream" path="res://assets/imported/audio/bgm/intro.ogg" id="3_4s7kh"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_32h8g")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0823529, 0.141176, 1)
+
+[node name="BackdropArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4tx53")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.509804, 0.729412, 0.992157, 0.2)
+
+[node name="OrbA" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = 72.0
+offset_top = 52.0
+offset_right = 320.0
+offset_bottom = 300.0
+color = Color(0.243137, 0.603922, 0.988235, 0.18)
+
+[node name="OrbB" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = 920.0
+offset_top = 96.0
+offset_right = 1170.0
+offset_bottom = 340.0
+color = Color(0.945098, 0.564706, 0.294118, 0.14)
+
+[node name="OrbC" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = 860.0
+offset_top = 470.0
+offset_right = 1220.0
+offset_bottom = 760.0
+color = Color(0.6, 0.839216, 0.866667, 0.10)
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SpacerTop" type="Control" parent="SafeMargin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogoBlock" type="VBoxContainer" parent="SafeMargin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Kicker" type="Label" parent="SafeMargin/Layout/LogoBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "MONSTER STORY PROTOTYPE"
+
+[node name="Title" type="Label" parent="SafeMargin/Layout/LogoBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "POKEROSTER\nSTORY 2D"
+
+[node name="Subtitle" type="Label" parent="SafeMargin/Layout/LogoBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+text = "Stylized 3D story mode prototype built for one shared Godot project with Android and Web export targets."
+
+[node name="MenuPanel" type="PanelContainer" parent="SafeMargin/Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(0, 0)
+
+[node name="MenuMargin" type="MarginContainer" parent="SafeMargin/Layout/MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="MenuButtons" type="VBoxContainer" parent="SafeMargin/Layout/MenuPanel/MenuMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StoryButton" type="Button" parent="SafeMargin/Layout/MenuPanel/MenuMargin/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ContinueButton")
+text = "Story"
+
+[node name="ContinueButton" type="Button" parent="SafeMargin/Layout/MenuPanel/MenuMargin/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+focus_neighbor_top = NodePath("../StoryButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="SafeMargin/Layout/MenuPanel/MenuMargin/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="SafeMargin/Layout/MenuPanel/MenuMargin/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+text = "Exit"
+
+[node name="HintLabel" type="Label" parent="SafeMargin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Controller, keyboard, mouse, and touch are all supported."
+
+[node name="SpacerBottom" type="Control" parent="SafeMargin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -120.0
+offset_right = 240.0
+offset_bottom = 120.0
+
+[node name="SettingsMargin" type="MarginContainer" parent="SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SettingsVBox" type="VBoxContainer" parent="SettingsPanel/SettingsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsMargin/SettingsVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+
+[node name="SettingsCopy" type="Label" parent="SettingsPanel/SettingsMargin/SettingsVBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = "Prototype settings stub. This panel is ready for future audio, language, accessibility, and pixel scaling options."
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_4s7kh")
+volume_db = -12.0

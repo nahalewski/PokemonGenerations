@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETICIST ARENA | Battle Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffefed",
+                        "inverse-primary": "#ff5540",
+                        "on-error-container": "#510017",
+                        "secondary": "#425a93",
+                        "on-secondary-fixed-variant": "#374f87",
+                        "on-background": "#2d2f2f",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-low": "#f0f1f1",
+                        "primary-fixed": "#ff7763",
+                        "tertiary-fixed-dim": "#eebe00",
+                        "primary-dim": "#a40100",
+                        "tertiary-dim": "#624d00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#f1f2ff",
+                        "inverse-on-surface": "#9c9d9d",
+                        "error-container": "#f74b6d",
+                        "on-surface-variant": "#5a5c5c",
+                        "surface-variant": "#dbdddd",
+                        "error-dim": "#a70138",
+                        "surface-dim": "#d3d5d5",
+                        "surface-tint": "#bb0100",
+                        "secondary-container": "#c1d1ff",
+                        "on-surface": "#2d2f2f",
+                        "primary": "#bb0100",
+                        "on-tertiary-fixed": "#413200",
+                        "background": "#f6f6f6",
+                        "tertiary": "#705900",
+                        "secondary-fixed": "#c1d1ff",
+                        "surface-container-high": "#e1e3e3",
+                        "surface": "#f6f6f6",
+                        "primary-container": "#ff7763",
+                        "on-primary-fixed-variant": "#600000",
+                        "outline": "#767777",
+                        "tertiary-fixed": "#fecb00",
+                        "secondary-fixed-dim": "#adc3ff",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "error": "#b41340",
+                        "on-error": "#ffefef",
+                        "surface-container": "#e7e8e8",
+                        "secondary-dim": "#364e86",
+                        "on-secondary-container": "#2d457d",
+                        "on-primary-container": "#4f0000",
+                        "on-secondary-fixed": "#173269",
+                        "on-tertiary-container": "#584500",
+                        "primary-fixed-dim": "#ff5b47",
+                        "surface-bright": "#f6f6f6",
+                        "outline-variant": "#acadad",
+                        "surface-container-highest": "#dbdddd",
+                        "tertiary-container": "#fecb00",
+                        "on-tertiary": "#fff1d5",
+                        "inverse-surface": "#0c0f0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-bleed {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .gauge-clip {
+            clip-path: inset(0 0 50% 0);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-slate-50 dark:bg-slate-950 shadow-[0_4px_20px_-10px_rgba(66,90,147,0.2)] fixed top-0 left-0 w-full z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-lg scale-95 active:scale-90 transition-transform">menu</button>
+<h1 class="font-['Space_Grotesk'] tracking-tight uppercase text-xl font-black tracking-tighter italic text-red-700 dark:text-red-600">KINETICIST ARENA</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 font-['Space_Grotesk'] font-bold text-sm uppercase tracking-wider">
+<a class="text-slate-600 dark:text-slate-400 hover:text-red-700 transition-colors" href="#">Roster</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-red-700 transition-colors" href="#">Search</a>
+<a class="text-red-700 dark:text-red-500 font-bold border-b-2 border-red-700" href="#">Battle</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-red-700 transition-colors" href="#">Profile</a>
+</nav>
+<button class="material-symbols-outlined text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-lg scale-95 active:scale-90 transition-transform">notifications</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-2xl mx-auto min-h-screen">
+<!-- Dashboard Header: Asymmetric Hero -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
+<div class="lg:col-span-7">
+<div class="flex items-center gap-4 mb-4">
+<span class="bg-primary/10 text-primary font-['Space_Grotesk'] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Live Analysis</span>
+<span class="text-outline-variant font-label text-xs uppercase tracking-tighter">Session ID: #BTL-294-8X</span>
+</div>
+<h2 class="font-headline text-5xl md:text-7xl font-black text-on-surface leading-[0.9] -tracking-widest uppercase mb-6">Battle <br/><span class="text-secondary">Analytics</span></h2>
+<p class="font-body text-on-surface-variant max-w-xl text-lg leading-relaxed">Advanced telemetry for the high-stakes kineticist. Real-time probability mapping and predictive damage modeling for elite-tier competitive simulation.</p>
+</div>
+<div class="lg:col-span-5 flex flex-col items-end gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl w-full border-l-4 border-primary shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="font-headline font-bold text-sm uppercase text-outline">Victory Probability</span>
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-6xl font-black text-primary">65%</span>
+<span class="font-label text-xs text-outline uppercase">Confidence: 0.92</span>
+</div>
+<div class="mt-4 h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Comparison Panel (Asymmetric overlap) -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-2xl overflow-hidden relative min-h-[400px]">
+<div class="p-8 relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight">Active Matchup</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold uppercase">Dynamic Mode</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 flex-grow">
+<!-- Challenger -->
+<div class="relative group">
+<div class="absolute -top-12 -left-6 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<img alt="Charizard dynamic pose" class="w-48 h-48 object-contain mb-4 filter drop-shadow-2xl relative z-10" data-alt="Hyper-realistic official artwork of a powerful orange dragon with wings and a flaming tail against a clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8voNEiQSWrCrm_zHrGehAJPAHhbtB0rPNXDiqCuvNbIy-YOyP4YmWYsuN4ajkQXtxIxTwdBIhaiiOEDnaVshQmzTAg6Opzm8vJMYVxnoQ-8IU-gpgVPv7l7eGC_r5R3r1qN-R_3KyRABQy2G6Amys4uUzf0SBgvURU9--TRS5UKiyYZYQ9Kk6hNrbR2HNNEzI5Vwf2y9MNqjAC2gMtDawSptWu3zIoaJKvoi4sE9oZNqlMwlwFT8_xw3ifoXlfUcFtGQzMNOa8Hk"/>
+<div class="relative z-10">
+<h4 class="font-headline text-3xl font-black uppercase text-primary">CHARIZARD</h4>
+<div class="flex gap-2 mb-4">
+<span class="bg-primary-container/20 border border-primary/20 text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Fire</span>
+<span class="bg-secondary-container/20 border border-secondary/20 text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Flying</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-label font-bold uppercase text-outline">
+<span>DPS Potential</span>
+<span>428</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Opponent -->
+<div class="relative group text-right flex flex-col items-end">
+<div class="absolute -top-12 -right-6 w-48 h-48 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all duration-700"></div>
+<img alt="Venusaur dynamic pose" class="w-48 h-48 object-contain mb-4 filter drop-shadow-2xl relative z-10 grayscale-[0.5] hover:grayscale-0 transition-all" data-alt="Hyper-realistic official artwork of a large blue-green toad-like creature with a giant tropical flower on its back in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXdI0-RE1Qy1Oh52AbwG49CYDdN6p_XM8ChpsY5BNBjj-aOq9KkQcmZevAGUzPgAGjbfJY2H8lF-WzIWig64xZkjgKBHeLHxIbsZvTlSsp7VZxEW-PPH1WFwF5DErP4t1tBX8UaEdQ1iAK6MC8eGzCG07j9Pwsy-FgWlUVDkLvbwHI-TU9YsqU0xYNzdi8yV8YpLIpcUo_Pq85fuWe7s6nYrqn1UKdAEV_G9kL1jGqVDX7Lj8tkS2syw1y1Dx_g2EtN0KNUOUupi4"/>
+<div class="relative z-10">
+<h4 class="font-headline text-3xl font-black uppercase text-secondary">VENUSAUR</h4>
+<div class="flex gap-2 mb-4 justify-end">
+<span class="bg-surface-container-highest border border-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase">Grass</span>
+<span class="bg-surface-container-highest border border-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase">Poison</span>
+</div>
+<div class="space-y-2 w-full">
+<div class="flex justify-between text-[10px] font-label font-bold uppercase text-outline">
+<span>Resilience</span>
+<span>395</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[72%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Grid Texture -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#000 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+</div>
+<!-- Type Advantage Matrix -->
+<div class="bg-surface-container-highest p-8 rounded-2xl flex flex-col">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span> Matrix
+                </h3>
+<div class="flex-grow space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<span class="font-label font-bold text-xs uppercase text-on-surface">Offensive Multiplier</span>
+<span class="font-headline text-2xl font-black text-primary">2.0x</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<span class="font-label font-bold text-xs uppercase text-on-surface">Defensive Resist</span>
+<span class="font-headline text-2xl font-black text-secondary">0.5x</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<span class="font-label font-bold text-xs uppercase text-on-surface">Evasion Index</span>
+<span class="font-headline text-2xl font-black text-tertiary">0.12</span>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<div class="flex gap-1">
+<div class="flex-grow h-8 bg-primary/20 rounded-l-sm border-r border-background"></div>
+<div class="flex-grow h-8 bg-primary/40 border-r border-background"></div>
+<div class="flex-grow h-8 bg-primary/60 border-r border-background"></div>
+<div class="flex-grow h-8 bg-primary/80 border-r border-background"></div>
+<div class="flex-grow h-8 bg-primary rounded-r-sm"></div>
+</div>
+<div class="flex justify-between mt-2 font-label text-[8px] uppercase font-black text-outline">
+<span>Low Threat</span>
+<span>Critical Threat</span>
+</div>
+</div>
+</div>
+<!-- Damage Comparison Chart -->
+<div class="bg-on-background text-surface p-8 rounded-2xl md:col-span-2">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white">Projected Damage Variance</h3>
+<p class="font-body text-outline text-xs mt-1">Simulated over 100 iterations per second</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<span class="font-label text-[10px] uppercase font-bold">Inbound</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-secondary rounded-full"></div>
+<span class="font-label text-[10px] uppercase font-bold">Outbound</span>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-3 h-48 w-full border-b border-outline-variant/30 pb-2">
+<!-- Graph Columns -->
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[60%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[55%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[45%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[70%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[30%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[35%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[65%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[40%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[45%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[85%] rounded-t-sm"></div>
+</div>
+<div class="flex-grow flex flex-col justify-end gap-1 h-full">
+<div class="bg-primary/80 w-full h-[20%] rounded-t-sm"></div>
+<div class="bg-secondary w-full h-[30%] rounded-t-sm"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 font-label text-[9px] uppercase font-bold text-outline">
+<span>T-05:00</span>
+<span>T-04:00</span>
+<span>T-03:00</span>
+<span>T-02:00</span>
+<span>T-01:00</span>
+<span>Current</span>
+<span>Predicted</span>
+</div>
+</div>
+<!-- Odds Gauge / Win Odds -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl relative overflow-hidden flex flex-col shadow-sm">
+<div class="relative z-10">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Tactical Edge</h3>
+<p class="font-body text-on-surface-variant text-xs mb-8">Victory probability calculated via Monte Carlo simulation.</p>
+</div>
+<div class="relative flex-grow flex items-center justify-center py-4">
+<!-- Gauge Mockup -->
+<div class="relative w-48 h-48 rounded-full border-[16px] border-surface-container">
+<div class="absolute inset-0 rounded-full border-[16px] border-primary border-r-transparent border-b-transparent -rotate-45"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline text-4xl font-black text-on-surface">65.4</span>
+<span class="font-label text-[10px] font-black uppercase text-outline">IndexScore</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl mt-6 relative z-10">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label text-[10px] font-black uppercase text-on-surface">Elite Advantage</span>
+</div>
+<span class="font-headline text-lg font-bold text-tertiary">+14%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Telemetry Table -->
+<section class="mt-12">
+<h3 class="font-headline text-3xl font-black uppercase mb-8 border-l-8 border-secondary pl-6">Deep Telemetry</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body">
+<thead>
+<tr class="bg-surface-container-highest text-[10px] uppercase font-black text-outline">
+<th class="px-6 py-4">Variable</th>
+<th class="px-6 py-4">Current Value</th>
+<th class="px-6 py-4">Baseline</th>
+<th class="px-6 py-4">Differential</th>
+<th class="px-6 py-4 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-sm">Energy Regeneration</td>
+<td class="px-6 py-6 font-headline font-bold text-lg">4.2/s</td>
+<td class="px-6 py-6 text-on-surface-variant">3.5/s</td>
+<td class="px-6 py-6 text-primary font-bold">+20%</td>
+<td class="px-6 py-6 text-right">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase">Optimal</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-sm">Physical Impact Velocity</td>
+<td class="px-6 py-6 font-headline font-bold text-lg">118 km/h</td>
+<td class="px-6 py-6 text-on-surface-variant">105 km/h</td>
+<td class="px-6 py-6 text-primary font-bold">+12%</td>
+<td class="px-6 py-6 text-right">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-sm">Particle Density Analysis</td>
+<td class="px-6 py-6 font-headline font-bold text-lg">0.82 mg/m³</td>
+<td class="px-6 py-6 text-on-surface-variant">0.95 mg/m³</td>
+<td class="px-6 py-6 text-secondary font-bold">-14%</td>
+<td class="px-6 py-6 text-right">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase">Nominal</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-sm">Response Latency</td>
+<td class="px-6 py-6 font-headline font-bold text-lg">12ms</td>
+<td class="px-6 py-6 text-on-surface-variant">15ms</td>
+<td class="px-6 py-6 text-primary font-bold">-20%</td>
+<td class="px-6 py-6 text-right">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase">Critical High</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-100 dark:bg-slate-900 shadow-[0_-8px_30px_rgba(0,0,0,0.04)] md:hidden">
+<div class="flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">list_alt</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Roster</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100/50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-xl px-5 py-2 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

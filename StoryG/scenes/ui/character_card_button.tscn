@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/character_card_button.gd" id="1_m5tbl"]
+
+[node name="CharacterCardButton" type="Button"]
+custom_minimum_size = Vector2(260, 360)
+focus_mode = 2
+toggle_mode = false
+text = ""
+script = ExtResource("1_m5tbl")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Highlight" type="ColorRect" parent="Panel/Content/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(0.568627, 0.807843, 0.996078, 1)
+
+[node name="SilhouetteFrame" type="CenterContainer" parent="Panel/Content/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PortraitRect" type="TextureRect" parent="Panel/Content/VBox/SilhouetteFrame"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 192)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Panel/Content/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+text = "Avatar"
+
+[node name="SubtitleLabel" type="Label" parent="Panel/Content/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+text = "Balanced explorer"

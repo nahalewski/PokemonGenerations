@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/character_select_screen.gd" id="1_5wco1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/character_card_button.tscn" id="2_i7qne"]
+
+[node name="CharacterSelectScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wco1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0862745, 0.14902, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 28.0
+offset_right = -28.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 44
+text = "Choose Your Trainer"
+
+[node name="Subtitle" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+text = "Use left / right, focus, or tap to pick an avatar."
+
+[node name="Cards" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 20
+size_flags_vertical = 3
+
+[node name="CardLeft" parent="Margin/VBox/Cards" instance=ExtResource("2_i7qne")]
+unique_name_in_owner = true
+focus_neighbor_right = NodePath("../CardRight")
+focus_neighbor_bottom = NodePath("../../ConfirmButton")
+
+[node name="CardRight" parent="Margin/VBox/Cards" instance=ExtResource("2_i7qne")]
+unique_name_in_owner = true
+focus_neighbor_left = NodePath("../CardLeft")
+focus_neighbor_bottom = NodePath("../../ConfirmButton")
+
+[node name="DetailLabel" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = "Aurora"
+
+[node name="ConfirmButton" type="Button" parent="Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Cards/CardLeft")
+text = "Confirm Selection"

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kineticist Arena | Pokémon Selector</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffefed",
+                        "inverse-primary": "#ff5540",
+                        "on-error-container": "#510017",
+                        "secondary": "#425a93",
+                        "on-secondary-fixed-variant": "#374f87",
+                        "on-background": "#2d2f2f",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-low": "#f0f1f1",
+                        "primary-fixed": "#ff7763",
+                        "tertiary-fixed-dim": "#eebe00",
+                        "primary-dim": "#a40100",
+                        "tertiary-dim": "#624d00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#f1f2ff",
+                        "inverse-on-surface": "#9c9d9d",
+                        "error-container": "#f74b6d",
+                        "on-surface-variant": "#5a5c5c",
+                        "surface-variant": "#dbdddd",
+                        "error-dim": "#a70138",
+                        "surface-dim": "#d3d5d5",
+                        "surface-tint": "#bb0100",
+                        "secondary-container": "#c1d1ff",
+                        "on-surface": "#2d2f2f",
+                        "primary": "#bb0100",
+                        "on-tertiary-fixed": "#413200",
+                        "background": "#f6f6f6",
+                        "tertiary": "#705900",
+                        "secondary-fixed": "#c1d1ff",
+                        "surface-container-high": "#e1e3e3",
+                        "surface": "#f6f6f6",
+                        "primary-container": "#ff7763",
+                        "on-primary-fixed-variant": "#600000",
+                        "outline": "#767777",
+                        "tertiary-fixed": "#fecb00",
+                        "secondary-fixed-dim": "#adc3ff",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "error": "#b41340",
+                        "on-error": "#ffefef",
+                        "surface-container": "#e7e8e8",
+                        "secondary-dim": "#364e86",
+                        "on-secondary-container": "#2d457d",
+                        "on-primary-container": "#4f0000",
+                        "on-secondary-fixed": "#173269",
+                        "on-tertiary-container": "#584500",
+                        "primary-fixed-dim": "#ff5b47",
+                        "surface-bright": "#f6f6f6",
+                        "outline-variant": "#acadad",
+                        "surface-container-highest": "#dbdddd",
+                        "tertiary-container": "#fecb00",
+                        "on-tertiary": "#fff1d5",
+                        "inverse-surface": "#0c0f0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-slate-50 dark:bg-slate-950 shadow-[0_4px_20px_-10px_rgba(66,90,147,0.2)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-slate-600 hover:bg-slate-200/50 transition-colors p-2 rounded-xl scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-xl font-black tracking-tighter italic text-red-700 dark:text-red-600 font-['Space_Grotesk'] tracking-tight uppercase">KINETICIST ARENA</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 hover:bg-slate-200/50 transition-colors p-2 rounded-xl scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-6 max-w-screen-2xl mx-auto">
+<!-- Hero Search Section -->
+<section class="mb-12">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-highest p-8 md:p-12 mb-8">
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-on-surface uppercase">
+                        Master the <span class="text-primary italic">Telemetry</span>
+</h2>
+<p class="font-body text-on-surface-variant text-lg mb-8 max-w-md">
+                        Access high-performance battle analytics and scout the most competitive entities for your elite roster.
+                    </p>
+<div class="flex items-center bg-surface p-1 rounded-xl shadow-sm max-w-xl group focus-within:ring-2 focus-within:ring-primary transition-all">
+<div class="pl-4 text-secondary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 font-body text-on-surface placeholder:text-outline-variant" placeholder="Search by name, ability, or ID..." type="text"/>
+<button class="bg-primary text-on-primary font-headline font-bold px-8 py-3 rounded-lg hover:bg-primary-dim transition-colors scale-95 active:scale-90">
+                            EXECUTE
+                        </button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none hidden md:block">
+<img class="object-cover h-full w-full grayscale contrast-125" data-alt="Abstract red and blue crystalline geometric patterns shifting in a digital space with sharp edges and cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZb8RO-k3les6MOtT5GpbWw6ZqYaQZtf1GBhQ_cwZi9p7YICN_ddLGsn3aNQIV7mA_qNXhw2ARVbyO2mCXT_2au3nv-4SgIqsWzB72Nyv7uTN1Pv6g16zAcJf-KzqTme5T4qI1FeSFCMDBhlRjSLozA_aIZxn0Tw6YXb11FGUliVNA01z5i2uLrumu1JTV3T8OQcuhbYDM4lZn3ewkCyeumnxEcm-Imkf4g2j8jKt7anZ9ec5eIrGCo6KG0pyjZg2dlfPKMwx63yY"/>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3 items-center">
+<span class="font-label text-xs font-bold text-outline uppercase tracking-widest mr-2">Core Filters:</span>
+<button class="px-6 py-2 rounded-full border border-primary text-primary font-bold text-sm bg-primary-container/20 hover:bg-primary-container/40 transition-all">All Types</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Fire</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Water</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Grass</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Electric</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Dragon</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Steel</button>
+</div>
+</section>
+<!-- Pokemon List (Editorial Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+<!-- Entry 1: Arcanine -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-visible flex flex-col md:flex-row transition-all hover:bg-surface-container">
+<div class="relative w-full md:w-48 h-48 md:h-auto overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Dynamic shot of a powerful orange tiger-like creature with a thick cream mane jumping through embers and flames in a dark stadium" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIMwwrA6dSeKtIB7KtqM64GDsSgg0Ggtv9N9Yd_BzKu3aJVN8BE1jPPAn5g5Hy7W0QiHHqHaDLuNkVwD9vjVguvWCOR-H8FKwZg2mHf4v1F-4TDUxvhEEQ303w0dM2fHCexcibZ-ivmgMvt5OItDUvNTp9mGSalhW6JQ7BoNGp8yIZVALJuTEG7RwxL7CO5efrfAzG9HSel2pZQnTc2Xup4IST2ohPjX0extxGApxFvjeo1ywodC9Y0M4dnqfne2mExk92Q2bdlLw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="font-label text-[10px] font-black text-on-primary bg-primary px-2 py-1 rounded-sm">NO. 059</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-3xl font-black tracking-tighter uppercase text-on-surface">Arcanine</h3>
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-primary-container/20 text-on-primary-container border border-primary/20">Fire</div>
+</div>
+<!-- Base Stats Visualization -->
+<div class="space-y-3 mt-4">
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">HP</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 75%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">90</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">ATK</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 85%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">110</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">SPD</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 80%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">95</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-[10px] font-bold text-outline-variant uppercase">Ability: Intimidate</div>
+<button class="flex items-center gap-2 bg-on-surface text-surface px-4 py-2 rounded font-headline text-xs font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            ADD TO ROSTER
+                        </button>
+</div>
+</div>
+</div>
+<!-- Entry 2: Gyarados -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-visible flex flex-col md:flex-row transition-all hover:bg-surface-container">
+<div class="relative w-full md:w-48 h-48 md:h-auto overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Ferocious blue sea serpent emerging from churning dark ocean waves under a lightning-filled sky in high contrast editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqfNiKoMDBB16QmbeTikCfuXRy3uLvWaemfi9aMIT8A3ApKiMSCSVTn-srTxKPLmrjVBi8i59p8OfwmTnxJD4RkflWs74-EtVe1-T0sQOsfsZ1m2oA0_jG-D8HKqvQwrxA8nfwOsVz3FVtjytua3PZY7T5BFm73l8Id1SOslZfnGP1_EYL9WQ7gIXu6ajpQcGgkdENobSgezpsfW3IXA871Jphh9zRrpt_2vlf6r0MRn0JQibvhvq2WlAkDrqlOWCzASaGo38VPfg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="font-label text-[10px] font-black text-on-primary bg-secondary px-2 py-1 rounded-sm">NO. 130</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-3xl font-black tracking-tighter uppercase text-on-surface">Gyarados</h3>
+<div class="flex gap-1">
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-secondary-container/20 text-on-secondary-container border border-secondary/20">Water</div>
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-200/50 text-slate-600 border border-slate-300/30">Flying</div>
+</div>
+</div>
+<div class="space-y-3 mt-4">
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">HP</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 82%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">95</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">ATK</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 95%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">125</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">DEF</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 65%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">79</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-[10px] font-bold text-outline-variant uppercase">Ability: Moxie</div>
+<button class="flex items-center gap-2 bg-on-surface text-surface px-4 py-2 rounded font-headline text-xs font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            ADD TO ROSTER
+                        </button>
+</div>
+</div>
+</div>
+<!-- Entry 3: Garchomp (Bento Style Focus) -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-visible flex flex-col md:flex-row transition-all hover:bg-surface-container">
+<div class="relative w-full md:w-48 h-48 md:h-auto overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="A sleek shark-like bipedal dragon with dark purple skin and yellow belly standing in a high-tech laboratory with neon blue lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeH3ZYxHm77nIdTXtbZrlzjU1BXx9L0lxYViPGcGGr-kx0cxohBE0S-iPhwToXlVj7jQHFVFEecCzhn7Fhkz78ccR_N3uLPGVY11m4KpLdZoleGFkJFz4Slz6JhwnASQvu39eRK3JzbNRGmgLT-1cAHkgan4Ni94wnfkUIt3OuYuEx7GfNHhI_XOWUJOiUZgWHkMxVLKJPpxQyXa-UgYzXxzk6GLfY7_N79YS5lkmzHT2hh8-Ny6lRSm89QgNjtiKn_BVjkaAeCdM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="font-label text-[10px] font-black text-on-primary bg-primary-dim px-2 py-1 rounded-sm">NO. 445</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-3xl font-black tracking-tighter uppercase text-on-surface">Garchomp</h3>
+<div class="flex gap-1">
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-purple-900/20 text-purple-800 border border-purple-800/20">Dragon</div>
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-900/20 text-orange-800 border border-orange-800/20">Ground</div>
+</div>
+</div>
+<div class="space-y-3 mt-4">
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">HP</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 88%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">108</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">ATK</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 100%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">130</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">SPD</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 86%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">102</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-[10px] font-bold text-outline-variant uppercase">Ability: Rough Skin</div>
+<button class="flex items-center gap-2 bg-on-surface text-surface px-4 py-2 rounded font-headline text-xs font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            ADD TO ROSTER
+                        </button>
+</div>
+</div>
+</div>
+<!-- Entry 4: Jolteon -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-visible flex flex-col md:flex-row transition-all hover:bg-surface-container">
+<div class="relative w-full md:w-48 h-48 md:h-auto overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Close up of a spiky yellow fox-like creature with electrical sparks dancing between its fur against a dark, moody background with cinematic rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMfP5cyBTxpV0MbmT4ymGXEJVFyjVR-MKfPuGM65-oQhTK6AslNnbsgJ6mExtXYmmGDgcDh6eKb5W8xov8hlURwC78cebdbMFvRa8HVmtplpm-7xNZMxU0k7RAU9VHuhLPrmUTVso9JvJIrnQY5Ne3RR5LDphPVoxIWQd1wGq7JnVxIwlgSZremjuRLGR6Q25oBuGDtL4h9TjjSGRRH9zpzYx7z6mOFZiY_GpSU1nl-keo8ifwsI1IyDOMXnRK1Hc5Knyfc1rZSmM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="font-label text-[10px] font-black text-on-tertiary-container bg-tertiary px-2 py-1 rounded-sm">NO. 135</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-3xl font-black tracking-tighter uppercase text-on-surface">Jolteon</h3>
+<div class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-tertiary-container/20 text-on-tertiary-container border border-tertiary/20">Electric</div>
+</div>
+<div class="space-y-3 mt-4">
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">SPA</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 88%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">110</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">SPD</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 100%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">130</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 font-label text-[10px] font-bold text-outline">HP</span>
+<div class="flex-1 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 55%;"></div>
+</div>
+<span class="w-8 font-label text-[10px] font-bold text-on-surface text-right">65</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-[10px] font-bold text-outline-variant uppercase">Ability: Volt Absorb</div>
+<button class="flex items-center gap-2 bg-on-surface text-surface px-4 py-2 rounded font-headline text-xs font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            ADD TO ROSTER
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 border-t-0 bg-slate-100 dark:bg-slate-900 shadow-[0_-8px_30px_rgba(0,0,0,0.04)]">
+<div class="flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-400 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="list_alt">list_alt</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Roster</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100/50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-xl px-5 py-2 hover:text-blue-700 dark:hover:text-blue-400 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="search">search</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-400 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="monitoring">monitoring</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-400 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>
